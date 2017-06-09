@@ -1,0 +1,71 @@
+
+
+body { 
+  margin:0;
+  font-family: sans-serif;
+}
+
+header {
+  position: relative;
+  text-align: center;
+  height: 60px;
+  font-size: 18px;
+  background: linear-gradient(to bottom, #FFDEAD, #FF7F00);
+  color: #fff;
+  font-weight: bolder;
+}
+#back {
+  float: left;
+  position: absolute;
+  left: 12px;
+  top: 26px;
+}
+
+#menu {
+  float: right;
+  position: absolute;
+  right: 12px;
+  top: 26px;
+}
+header span { 
+  display: inline-block; 
+  margin-top: 26px;
+}
+#main {
+  font-size: 14px;
+  line-height: 8px;
+  text-align:left;
+}
+#time {
+  text-indent: 18px;
+  background-color: #EEEED1;
+  height: 36px;
+  line-height:36px;
+}
+
+#message {
+  margin: 16px 18px 0 18px;
+}
+
+#cardNumber {
+  letter-spacing: 0.125em;
+  word-spacing: -0.5em;
+}
+
+#money {
+  float: right;
+  color: green;
+}
+
+#date {
+  margin: 12px 18px 0 18px;
+  font-size: 12px;
+  letter-spacing: 0.125em;
+  color: #ccc;
+  padding-bottom: 14px;
+  border-bottom:thin solid #EEEED1 ; 
+}
+
+#date span {
+  float: right;
+}
