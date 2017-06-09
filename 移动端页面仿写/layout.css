@@ -38,7 +38,7 @@ header span {
 }
 #time {
   text-indent: 18px;
-  background-color: #EEEED1;
+  background-color: #ccc;
   height: 36px;
   line-height:36px;
 }
@@ -63,7 +63,7 @@ header span {
   letter-spacing: 0.125em;
   color: #ccc;
   padding-bottom: 14px;
-  border-bottom:thin solid #EEEED1 ; 
+  border-bottom:thin solid #ccc ; 
 }
 
 #date span {
