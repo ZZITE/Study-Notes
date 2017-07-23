@@ -8,21 +8,21 @@ body {
 #container {
   margin : 0 auto;
   width: 100%;
-  position: relative;
 }
 
 #left {
-  position: absolute;
-  left: 0;
+  position: relative;
+  float: left;
+  left: -200px;
+  margin-left: -100%;
   width: 200px;
   height: 500px;
   background: #ffa;
 }
 
 #content {
-  position: relative;
-  left: 200px;
   width: 100%;
   height: 500px;
+  float: left;
   background: #ccc;
 }
