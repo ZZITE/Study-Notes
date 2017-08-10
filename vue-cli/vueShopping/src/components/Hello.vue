@@ -2,24 +2,26 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
     <div v-try="color">
       {{num}}
     </div>
     <button @click="add()">add</button>
+    <author></author>
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
+var Author = Vue.extend({
+  template: "<p><a :href='url'>{{author}}</a></p>",
+  data: function () {
+    return {
+      author: 'asasa',
+      url: 'http://www.baidu.com'
+    }
+  }
+})
+new Author().$mount('author')
 Vue.directive('try', {
   bind: function () {
     console.log('1 - bind')
