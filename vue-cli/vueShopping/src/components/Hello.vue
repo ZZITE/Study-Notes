@@ -11,15 +11,45 @@
       <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
     </ul>
     <h2>Ecosystem</h2>
+    <div v-try="color">
+      {{num}}
+    </div>
+    <button @click="add()">add</button>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+Vue.directive('try', {
+  bind: function () {
+    console.log('1 - bind')
+  },
+  inserted: function (el, binding) {
+    console.log('2 - inserted')
+    el.style = 'color:' + binding.value
+  },
+  update: function () {
+    console.log('3 - update')
+  },
+  componentUpdated: function () {
+    console.log('4 - componentUpdated')
+  },
+  unbind: function () {
+    console.log('1 - bind')
+  }
+})
 export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      num: 10,
+      color: 'red'
+    }
+  },
+  methods: {
+    add: function () {
+      this.num++
     }
   }
 }
