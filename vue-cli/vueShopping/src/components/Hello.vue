@@ -1,27 +1,15 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <div v-try="color">
-      {{num}}
-    </div>
+    <p>{{num}}</p>
     <button @click="add()">add</button>
-    <author></author>
+    <lin v-bind:aaaa="msg"></lin>
   </div>
 </template>
 
 <script>
+/*
 import Vue from 'vue'
-var Author = Vue.extend({
-  template: "<p><a :href='url'>{{author}}</a></p>",
-  data: function () {
-    return {
-      author: 'asasa',
-      url: 'http://www.baidu.com'
-    }
-  }
-})
-new Author().$mount('author')
 Vue.directive('try', {
   bind: function () {
     console.log('1 - bind')
@@ -40,19 +28,32 @@ Vue.directive('try', {
     console.log('1 - bind')
   }
 })
+*/
 export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      msg: 'Just Do It',
       num: 10,
       color: 'red'
+    }
+  },
+  components: {
+    'lin': {
+      template: `<div>来自{{aaaa}}</div>`,
+      props: ['aaaa']
     }
   },
   methods: {
     add: function () {
       this.num++
     }
+  },
+  beforeCreate: function () {
+    console.log('sas')
+  },
+  updated: function () {
+    console.log('6-updated 被更新后')
   }
 }
 </script>
