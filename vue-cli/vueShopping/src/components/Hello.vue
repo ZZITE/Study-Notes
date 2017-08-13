@@ -4,6 +4,7 @@
     <p>{{num}}</p>
     <button @click="add()">add</button>
     <lin v-bind:aaaa="msg"></lin>
+    <component v-bind:is="which"></component>
   </div>
 </template>
 
@@ -29,20 +30,25 @@ Vue.directive('try', {
   }
 })
 */
+var componentA = {
+  template: `<p>asa</p>`
+}
 export default {
   name: 'hello',
   data () {
     return {
       msg: 'Just Do It',
       num: 10,
-      color: 'red'
+      color: 'red',
+      which: 'componentA'
     }
   },
   components: {
     'lin': {
       template: `<div>来自{{aaaa}}</div>`,
       props: ['aaaa']
-    }
+    },
+    'componentA': componentA
   },
   methods: {
     add: function () {
