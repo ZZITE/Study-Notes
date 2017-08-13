@@ -1,10 +1,15 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <p>{{num}}</p>
-    <button @click="add()">add</button>
+    <p>{{changeNum}}</p>
+    <button @click="add(2,$event)">add</button>
     <lin v-bind:aaaa="msg"></lin>
     <component v-bind:is="which"></component>
+    <ul>
+      <li v-for="list in reverseNews">{{list}}</li>        
+    </ul>
+    <btn @click.native="add(3)"></btn>
+    <p>{{suggmes}}</p>
   </div>
 </template>
 
@@ -33,14 +38,23 @@ Vue.directive('try', {
 var componentA = {
   template: `<p>asa</p>`
 }
+var componentB = {
+  template: `<p>this is B</p>`
+}
+var btn = {
+  template: `<button>btn</button>`
+}
 export default {
   name: 'hello',
   data () {
     return {
       msg: 'Just Do It',
-      num: 10,
+      num: 0,
       color: 'red',
-      which: 'componentA'
+      which: 'componentA',
+      items: [1, 2, 3, 4],
+      suggmes: '少了',
+      sugg: ['少了', '刚好', '多了']
     }
   },
   components: {
@@ -48,18 +62,44 @@ export default {
       template: `<div>来自{{aaaa}}</div>`,
       props: ['aaaa']
     },
-    'componentA': componentA
+    'componentA': componentA,
+    'componentB': componentB,
+    'btn': btn
   },
   methods: {
-    add: function () {
-      this.num++
+    add: function (number, $event) {
+      this.num += number
+      if (this.which === 'componentA') {
+        this.which = 'componentB'
+      } else {
+        this.which = 'componentA'
+      }
+    }
+  },
+  watch: {
+    num: function (oldValue, newValue) {
+      if (oldValue < 14) {
+        this.suggmes = this.sugg[0]
+      } else if (oldValue === 14) {
+        this.suggmes = this.sugg[1]
+      } else {
+        this.suggmes = this.sugg[2]
+      }
+    }
+  },
+  computed: {
+    changeNum: function () {
+      return this.num + '转换后'
+    },
+    reverseNews: function () {
+      return this.items.reverse()
     }
   },
   beforeCreate: function () {
-    console.log('sas')
+    // console.log('sas')
   },
   updated: function () {
-    console.log('6-updated 被更新后')
+    // console.log('6-updated 被更新后')
   }
 }
 </script>
@@ -76,7 +116,6 @@ ul {
 }
 
 li {
-  display: inline-block;
   margin: 0 10px;
 }
 
