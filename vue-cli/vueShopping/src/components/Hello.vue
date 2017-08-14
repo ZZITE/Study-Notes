@@ -10,10 +10,14 @@
     </ul>
     <btn @click.native="add(3)"></btn>
     <p>{{suggmes}}</p>
+    <ul>
+      <li v-for="i in aal[0]">{{i.goodsName}}</li>
+    </ul>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 /*
 import Vue from 'vue'
 Vue.directive('try', {
@@ -54,7 +58,8 @@ export default {
       which: 'componentA',
       items: [1, 2, 3, 4],
       suggmes: '少了',
-      sugg: ['少了', '刚好', '多了']
+      sugg: ['少了', '刚好', '多了'],
+      aal: ''
     }
   },
   components: {
@@ -94,6 +99,16 @@ export default {
     reverseNews: function () {
       return this.items.reverse()
     }
+  },
+  created: function () {
+    axios.get('http://jspang.com/DemoApi/typeGoods.php')
+    .then(response => {
+      this.aal = response.data
+      // console.log(this.try)
+    })
+    .catch(error => {
+      console.log(error)
+    })
   },
   beforeCreate: function () {
     // console.log('sas')
