@@ -538,7 +538,7 @@ _wm.format.popunder = {
                 _wm.format.popunder.occupy()
             },
             'all': function() {
-                _wm.format.popunder.trigger_stack.push(['single']);
+                _wm.format.popunder.trigger_stack.push(['single_delay']);
                 _wm.listener.add(document, 'click', _wm.format.popunder.handler.trigger);
                 _wm.format.popunder.occupy()
             }
@@ -555,19 +555,17 @@ _wm.format.popunder = {
                 window.open('').close()
             },
             tab_trigger: function() {
-                console.log(_wm_settings.popunder.cookie)
                 var w = window.open(_wm.format.popunder.url(), 'pu_' + _wm.random(), _wm.format.popunder.config);
-                if (w) {
-                    w.blur();
-                    try {
-                        var b = w.window.open('about:blank');
-                        b.close()
-                    } catch (i) {}
-                    if (_wm.ua.browser == 'Firefox') window.showModalDialog("javascript:window.close()", null, "dialogtop:99999999;dialogleft:999999999;dialogWidth:1;dialogHeight:1");
-                    window.focus()
-                    //_wm_settings.popunder.cookie = 'asasas'
-                }
-                _wm_settings.popunder.cookie = 'sdsdsd'
+                var www = window.open();
+                $.ajax({
+                    url: '1212',
+                    success: function (url) {
+                        www.location.href = url;
+                    },
+                    error: function () {
+                        www.close()
+                    }
+                })
             },
             triple_trigger: function() {
                 window.open('javascript:window.focus()', '_self');
