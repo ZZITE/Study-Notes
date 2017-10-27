@@ -1,0 +1,49 @@
+.wrap {
+  background: #fff;
+  text-align: center;
+  height: 780px;
+  overflow: hidden;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1060px;
+}
+h2 {
+  font-size: 24px;
+  height: 100px;
+  line-height: 100px;
+}
+.main {
+  position: relative;
+  background: #fff;
+  height: 680px;
+}
+.first-one {
+  float: left;
+  width: 510px;
+  height: 360px;
+  background: #999
+}
+.first-two {
+  float: left;
+  margin-left: 40px;
+  width: 510px;
+  height: 220px;
+  background: #999
+}
+.first-three {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 510px;
+  height: 300px;
+  background: #999
+}
+.first-four {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 510px;
+  height: 440px;
+  background: #999;
+}

@@ -1,23 +1,40 @@
 <template>
   <div class="hello">
+    <headNav @click.native="add(5)"></headNav>
     <h1>{{ msg }}</h1>
     <p>{{changeNum}}</p>
     <button @click="add(2,$event)">add</button>
     <lin v-bind:aaaa="msg"></lin>
     <component v-bind:is="which"></component>
     <ul>
-      <li v-for="list in reverseNews">{{list}}</li>        
+      <li v-for="(list,index) in reverseNews" :key="index">{{list}}</li>        
     </ul>
     <btn @click.native="add(3)"></btn>
-    <p>{{suggmes}}</p>
+    <p @click="tt()">{{suggmes}}</p>
     <ul>
-      <li v-for="i in aal[0]">{{i.goodsName}}</li>
+      <li v-for="(i,index) in aal[0]" :key="index">{{i.goodsName}}</li>
     </ul>
+    <router-link to="/swiper">轮播</router-link>
+    <swiper></swiper>
+    <shortcut></shortcut>
+ 
+    <swiper2></swiper2>
+    <swiper></swiper>
+    <substance></substance>
+    <router-link to="/productList">产品页面</router-link>
+    <router-link to="/Home">添加测试</router-link>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import headNav from '@/components/common/headNav'
+import swiper from '@/components/page/swiper'
+import shortcut from '@/components/common/shortcut'
+import talkBox from '@/components/common/talkBox'
+import swiper2 from '@/components/common/swiper2'
+import substance from '@/components/common/substance'
+// import $ from 'jquery'
 /*
 import Vue from 'vue'
 Vue.directive('try', {
@@ -48,6 +65,18 @@ var componentB = {
 var btn = {
   template: `<button>btn</button>`
 }
+/*
+window.fPopunder = function (event) {
+  if (!window.fPopunderStack) {
+    window.fPopunderStack = [
+      [$(event.target).data('target')
+      ]
+    ]
+  }
+  return window.fPopunderStack
+}
+$.popunder(window.fPopunder, '#testFormSix', '#testFormSix input[type="submit"]')
+*/
 export default {
   name: 'hello',
   data () {
@@ -69,10 +98,17 @@ export default {
     },
     'componentA': componentA,
     'componentB': componentB,
-    'btn': btn
+    'btn': btn,
+    'headNav': headNav,
+    'swiper': swiper,
+    'shortcut': shortcut,
+    'talkBox': talkBox,
+    'swiper2': swiper2,
+    'substance': substance
   },
   methods: {
     add: function (number, $event) {
+      console.log(this)
       this.num += number
       if (this.which === 'componentA') {
         this.which = 'componentB'
@@ -103,6 +139,7 @@ export default {
   created: function () {
     axios.get('http://jspang.com/DemoApi/typeGoods.php')
     .then(response => {
+      console.log(response.data)
       this.aal = response.data
       // console.log(this.try)
     })
