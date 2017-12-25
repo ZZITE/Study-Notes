@@ -5,7 +5,8 @@
 
   在学习之前首先对webpack有个初步的认识。
   
-  如果把前端的网页看作是一个应用, 而我们通常需要一堆复杂的js代码以及各种依赖包, 外部文件, 去构建它。使用webpack的一大作用就如同图片所示, 模块化的特点可以让你将一个复杂的项目细化为文件, 不仅仅是js,作为一个`module bundler`, webpack最终会将你需要的一切打包成一个或多个`bundler`  ![image](https://doc.webpack-china.org/bf093af83ee5548ff10fef24927b7cd2.svg)
+  如果把前端的网页看作是一个应用, 而我们通常需要一堆复杂的js代码以及各种依赖包, 外部文件, 去构建它。使用webpack的一大作用就如同图片所示, 模块化的特点可以让你将一个复杂的项目细化为文件, 不仅仅是js,作为一个`module bundler`, webpack最终会将你需要的一切打包成一个或多个`bundler`  
+  ![image](https://doc.webpack-china.org/bf093af83ee5548ff10fef24927b7cd2.svg)
   同时你可以在webpack愉快的使用typescript、sass等浏览器原先并不支持的扩展开发语言, 因为webpack最终都会将将其转换和打包为合适的格式供浏览器使用。
 
   在3.0之后, webpack还在很大程度上肩负起了前端项目优化的责任。
@@ -192,7 +193,7 @@ module:{
 
 这时, css文件就被正确的引入到项目中,并且在生产环境中正确打包到entry.js文件中。
 
-#### 压缩js代码
+### 压缩js代码
 在生产环境中, 我们通常需要压缩js代码来提升性能。在Webpack中可以很轻松的通过插件来实现JS代码的压缩。
 首先需要在webpack.config.js中引入`uglifyjs-webpack-glugin`插件
 ```
@@ -205,3 +206,4 @@ const uglify = require('uglifyjs-webpack-plugin');
     ],
 ```
 这时候在使用`webpack` 打包后会发现js代码已经被压缩了。
+
