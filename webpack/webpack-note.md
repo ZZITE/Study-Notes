@@ -62,6 +62,7 @@ module.exports={
     //配置webpack开发服务功能
     devServer:{}
 }
+
 ```
 以上便是一个没有内容的标准webpack配置模版
 
