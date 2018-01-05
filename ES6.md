@@ -1,7 +1,7 @@
 ### 字符串的扩展
 
 * ES6为字符串添加了遍历器接口，使得字符串可以被for...of循环遍历
-```
+```javascript
 for (let codePoint of 'foo') {
   console.log(codePoint);
 }
@@ -14,9 +14,8 @@ for (let codePoint of 'foo') {
   * endsWith(): 返回布尔值，表示参数字符串是否出现在原字符串的尾部。
 
 三种方法都支持第二个参数，用来指定开始搜索的位置。
-```
+```javascript
 let s = 'Hello world!';
-
 s.startsWith('world', 6) // true
 s.endsWith('Hello', 5) // true
 s.includes('Hello', 6) // false
@@ -29,7 +28,7 @@ repeat()方法返回一个新的字符串，表示将原字符串重复n次。
 
 * padStart(), padEnd()
 ES6引入了字符串补全长度的功能，如果某个字符串不够指定的长度，会在头部或者尾部补全。
-```
+```javascript
 'x'.padStart(5, 'ab') // 'ababx'
 'x'.padStart(4, 'ab') // 'abax'
 'x'.padEnd(5, 'ab') // 'xabab'
@@ -38,7 +37,7 @@ ES6引入了字符串补全长度的功能，如果某个字符串不够指定�
 其中第一个参数用来指定字符串的最小长度，第二个参数用来补全字符串。
 
 常见的用途是为数值补全指定位数或提示字符串格式
-```
+```javascript
 '1'.padStart(10, '0') // "0000000001"
 '12'.padStart(10, 'YYYY-MM-DD') // "YYYY-MM-12"
 ```
@@ -46,7 +45,7 @@ ES6引入了字符串补全长度的功能，如果某个字符串不够指定�
 * 模版字符串
 
 ES6引入了模版字符串用来解决过往输出模版的不便。模版字符串是增强版的字符串，用反引号 ` ` ` 标识。它可以当做普通的字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。
-```
+```javascript
 // 普通字符串
 `In JavaScript '\n' is a line-feed.`
 
