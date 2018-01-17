@@ -1,6 +1,6 @@
-## leetcode刷题笔记
+## leetcode刷题笔记
 
-* 760. Find Anagram Mappings
+* 760.Find Anagram Mappings
 
 给定两个A和B的列表，B是A的一个字母组。B是A的一个字母组，意味着B是通过随机化A中元素的顺序而制成的。
 我们希望找到一个从A到B的索引映射P.映射P [i] = j意味着A中的第i个元素出现在索引为j的B中。
@@ -34,4 +34,12 @@ var anagramMappings = function (A, B) {
     return res;
 };
 ```
-思路：一开始想的是使用两个循环，但出现了TML的情况。最后利用对象存储数值和下标，匹配A中的数字来解决。
+更优解: 
+```
+var anagramMappings = function(A, B) {
+    var r = [];
+    A.forEach(item => r.push(B.indexOf(item)));
+    return r;
+};
+```
+思路：最后利用对象存储数值和下标，匹配A中的数字来解决。查看solution发现使用forEach可以快速解决问题。
