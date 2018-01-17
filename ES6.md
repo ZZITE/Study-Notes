@@ -135,4 +135,4 @@ withinErrorMargin(0.1 + 0.2, 0.3) // true
 1.1 + 1.3 === 2.4 // false
 withinErrorMargin(1.1 + 1.3, 2.4) // true
 ```
-
+test
