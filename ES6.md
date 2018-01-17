@@ -64,3 +64,54 @@ let name = "Bob", time = "today";
 
 * 标签模版
 
+模版字符串可以跟在一个函数后面，用于处理m这个模版字符串。这被称为标签模版功能。后面跟上的模版字符可以看作是函数的参数，如果模版字符中有变量，则会先对模版字符串进行处理成多个参数再调用。
+
+```
+let a = 5;
+let b = 10;
+
+tag`Hello ${ a + b } world ${ a * b }`;
+// 等同于
+tag(['Hello ', ' world ', ''], 15, 50);
+```
+模版字符串的一个应用就是过滤字符串，防止用户的恶意输入。 
+```
+let message =
+  SaferHTML`<p>${sender} has sent you a message.</p>`;
+
+function SaferHTML(templateData) {
+  let s = templateData[0];
+  for (let i = 1; i < arguments.length; i++) {
+    let arg = String(arguments[i]);
+
+    // Escape special characters in the substitution.
+    s += arg.replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+
+    // Don't escape special characters in the template.
+    s += templateData[i];
+  }
+  return s;
+}
+```
+上面的代码中sender是由用户输入，标签模版对它进行了处理，对特殊字符都进行了转义。
+
+ES6还为原声生的字符串提供了一个raw方法,String.raw方法，往往用来充当模板字符串的处理函数，返回一个斜杠都被转义（即斜杠前面再加一个斜杠）的字符串，对应于替换变量后的模板字符串。
+```
+String.raw`Hi\n${2+3}!`;
+// "Hi\\n5!"
+
+String.raw`Hi\u000A!`;
+// 'Hi\\u000A!'
+```
+
+### 数值的扩展
+
+* 二进制和八进制的表示法
+
+ES6 提供了二进制和八进制数值的新的写法，分别用前缀0b（或0B）和0o（或0O）表示。
+```
+0b111110111 === 503 // true
+0o767 === 503 // true
+```
