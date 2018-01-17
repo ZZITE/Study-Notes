@@ -115,3 +115,24 @@ ES6 提供了二进制和八进制数值的新的写法，分别用前缀0b（�
 0b111110111 === 503 // true
 0o767 === 503 // true
 ```
+将它们转化为十进制需要使用Number()方法。
+
+* 新的方法
+  * Number.isFinite() : 判断一个数值是否有限，参数非数值一律返回false,与isFinite()方法不同的是不会将其他类型的值转化为数值，而是直接返回false
+  * Number.isNaN() : 判断参数结果是否为NAN，只有为NAN时返回true，其余一律返回false
+  * Number.parseInt(), Number.parseFloat() 将全局的praseInt(),parseFloat()方法移植到Number上，这样做的好处是减少了全局使用，更加符合模块化。
+  * Number.isInteger() : 用于判断一个数值是否为整数，对于非数值类型都返回false，Number.isInteger(1.0)返回true因为js内部整数和浮点数采用同样的存储方式。
+需要注意的是，Number.isInteger(3.0000000000000002)这样的数虽然不是整数但依然会返回true,这是因为JavaScript 采用 IEEE 754 标准，数值存储为64位双精度格式，数值精度最多可以达到 53 个二进制位（1 个隐藏位与 52 个有效位）。如果数值的精度超过这个限度，第54位及后面的位就会被丢弃。类似的情况还有，如果一个数值的绝对值小于Number.MIN_VALUE（5E-324），即小于 JavaScript 能够分辨的最小值，会被自动转为 0。这时，Number.isInteger也会误判。因此如果对数据精度的要求较高，不建议使用Number.isInteger()判断一个数值是否为整数。
+* Number.EPSILON() : 表示1与大于1的最小浮点数的差，对于64位浮点数来说相当于2的-52次方，Math.pow(2, -52)。它是js所能表达的最小数，小与这个数的值通常没有意义。引入一个这么小的量的目的，在于为浮点数计算，设置一个误差范围。我们知道浮点数计算是不精确的。
+```
+unction withinErrorMargin (left, right) {
+  return Math.abs(left - right) < Number.EPSILON * Math.pow(2, 2);
+}
+
+0.1 + 0.2 === 0.3 // false
+withinErrorMargin(0.1 + 0.2, 0.3) // true
+
+1.1 + 1.3 === 2.4 // false
+withinErrorMargin(1.1 + 1.3, 2.4) // true
+```
+
