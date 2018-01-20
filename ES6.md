@@ -66,7 +66,7 @@ let name = "Bob", time = "today";
 
 模版字符串可以跟在一个函数后面，用于处理m这个模版字符串。这被称为标签模版功能。后面跟上的模版字符可以看作是函数的参数，如果模版字符中有变量，则会先对模版字符串进行处理成多个参数再调用。
 
-```
+```javascript
 let a = 5;
 let b = 10;
 
@@ -75,7 +75,7 @@ tag`Hello ${ a + b } world ${ a * b }`;
 tag(['Hello ', ' world ', ''], 15, 50);
 ```
 模版字符串的一个应用就是过滤字符串，防止用户的恶意输入。 
-```
+```javascript
 let message =
   SaferHTML`<p>${sender} has sent you a message.</p>`;
 
@@ -98,7 +98,7 @@ function SaferHTML(templateData) {
 上面的代码中sender是由用户输入，标签模版对它进行了处理，对特殊字符都进行了转义。
 
 ES6还为原声生的字符串提供了一个raw方法,String.raw方法，往往用来充当模板字符串的处理函数，返回一个斜杠都被转义（即斜杠前面再加一个斜杠）的字符串，对应于替换变量后的模板字符串。
-```
+```javascript
 String.raw`Hi\n${2+3}!`;
 // "Hi\\n5!"
 
@@ -111,7 +111,7 @@ String.raw`Hi\u000A!`;
 * 二进制和八进制的表示法
 
 ES6 提供了二进制和八进制数值的新的写法，分别用前缀0b（或0B）和0o（或0O）表示。
-```
+```javascript
 0b111110111 === 503 // true
 0o767 === 503 // true
 ```
@@ -124,7 +124,7 @@ ES6 提供了二进制和八进制数值的新的写法，分别用前缀0b（�
   * Number.isInteger() : 用于判断一个数值是否为整数，对于非数值类型都返回false，Number.isInteger(1.0)返回true因为js内部整数和浮点数采用同样的存储方式。
 需要注意的是，Number.isInteger(3.0000000000000002)这样的数虽然不是整数但依然会返回true,这是因为JavaScript 采用 IEEE 754 标准，数值存储为64位双精度格式，数值精度最多可以达到 53 个二进制位（1 个隐藏位与 52 个有效位）。如果数值的精度超过这个限度，第54位及后面的位就会被丢弃。类似的情况还有，如果一个数值的绝对值小于Number.MIN_VALUE（5E-324），即小于 JavaScript 能够分辨的最小值，会被自动转为 0。这时，Number.isInteger也会误判。因此如果对数据精度的要求较高，不建议使用Number.isInteger()判断一个数值是否为整数。
 * Number.EPSILON() : 表示1与大于1的最小浮点数的差，对于64位浮点数来说相当于2的-52次方，Math.pow(2, -52)。它是js所能表达的最小数，小与这个数的值通常没有意义。引入一个这么小的量的目的，在于为浮点数计算，设置一个误差范围。我们知道浮点数计算是不精确的。
-```
+```javascript
 function withinErrorMargin (left, right) {
   return Math.abs(left - right) < Number.EPSILON * Math.pow(2, 2);
 }
@@ -136,7 +136,7 @@ withinErrorMargin(0.1 + 0.2, 0.3) // true
 withinErrorMargin(1.1 + 1.3, 2.4) // true
 ```
 * 安全整数和 Number.isSafeInteger(): js中存在可以表达的整数上下限，为-2^53到2^53之间（不含两个端点）。超过这个范围则无法精准表达。
-```
+```javascript
 Math.pow(2, 53) // 9007199254740992
 
 9007199254740992  // 9007199254740992
@@ -150,7 +150,7 @@ ES6 引入了Number.MAX_SAFE_INTEGER和Number.MIN_SAFE_INTEGER这两个常量，
 Number.isSafeInteger()则是用来判断一个整数是否落在这个范围内。
 
 需要注意的是，在验证运算结果是否位安全整数的时候，应该先对参数运算的每个值进行验证，否则可能出现结果不准确的情况。
-```
+```javascript
 Number.isSafeInteger(9007199254740993 - 990)
 // true
 9007199254740993 - 990
@@ -159,7 +159,7 @@ Number.isSafeInteger(9007199254740993 - 990)
 ```
 由于参与计算的被减数本身不属于安全数，在这里他会被当作9007199254740992存储，故而计算结果不准确。
 * Math.trunc() : 用于将一个数的小数部分去除，只保留整数部分。
-```
+```javascript
 Math.trunc(4.9) // 4
 Math.trunc(-4.1) // -4
 
@@ -177,7 +177,7 @@ Math.trunc(undefined) // NaN
 ```
 
 * Math.sign() : 用于判断一个数为正数、负数、还是零。它有5个返回值:
-```
+```javascript
 Math.sign(-5) // -1
 Math.sign(5) // +1
 Math.sign(0) // +0
@@ -188,7 +188,7 @@ Math.sign(NaN) // NaN
 
 * Math.cbrt(): 计算立方根，对于非数值先转化为数值
 * 指数运算符 ** :
-```
+```javascript
 let a = 1.5;
 a **= 2;
 // 等同于 a = a * a;
@@ -203,7 +203,7 @@ b **= 3;
 * 函数参数的默认值
 
 ES6新增了对函数参数默认值的支持
-```
+```javascript
 function log (x, y = 'world') {
     const x = 'hello'
     console.log(x, y)
@@ -217,7 +217,7 @@ function log (x, y = 'world') {
 参数的默认值是惰性求值的，每次使用都会重新计算。
 
 参数的默认值可以配合解构的形式一同使用，例如：
-```
+```javascript
 function foo({x, y = 5} = {}) {
   console.log(x, y);
 }
