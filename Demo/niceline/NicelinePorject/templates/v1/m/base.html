@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/ico" href="{{ static_url('images/favicon.ico') }}" />      
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">        
+        <meta name="keywords" content="eco-friendly leggings,eco-friendly yoga pants,recycling,charity donations giving leggings,plastic bottles recycling,clean marine pollution,donation to the Red Cross,leggings,yoga pants" />
+        <meta property="og:url" content="http://www.niceline.com" />
+        <meta property="og:image" content="{{ static_url('images/facebook_share1.jpg')}}" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="628" />
+        <meta property="og:title" content="Hot Events!Limited-Time Free Gift——Eco-friendly Leggings."/>
+        <meta property="og:description" content="Participate in Our Donation Activities! Just Donate $0.99 Take A Pair of $100 Eco-friendly Leggings Home for Free" />
+        <meta name="description" content="Luxury leggings with eco-friendly material.We know you'll love our luxury, sheer-proof leggings so much, we're giving them away. Claim yours now. -- Great Legging, Green Earth." />
+        <title>Luxury leggings with eco-friendly material. | Niceline</title>
+        <script src="{{ static_url('js/jQuery.js') }}"></script>
+        <script src="{{ static_url('js/jquery.fullPage.min.js') }}"></script>
+        <link rel="stylesheet" href="{{ static_url('css/jquery.fullpage.min.css') }}">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+        <link rel="stylesheet" href="{{ static_url('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-98434538-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-98434538-1');
+        </script>
+    </head>
+    <body>
+      <header class="main-header wrap">
+          <a href="{{ reverse_url("index") }}">
+          <img src="{{ static_url('images/nice.png') }}" alt="">
+          </a>
+          <div class="dropdown pull-right">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                More
+                <span class="glyphicon glyphicon-align-justify"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="{{ reverse_url("information") }}">About us</a></li>
+                <li><a href="{{ reverse_url("information") }}#Fit ">Action plan</a></li>
+                <li><a href="mailto:service@niceline.com">Contact use</a></li>
+              </ul>
+            </div>
+      </header>
+      <div class="container-fluid main-content">
+        {% block content %}
+        {% end %}
+      </div>
+      
+      
+    </body>
+      {% block js %}
+    <script>
+
+
+    </script>
+      {% end %}
+
+      
+      {% block css %}
+
+      {% end %}
+      <style>
+        
+          .main-header {
+            position: fixed;
+            top:0;
+            z-index: 100;
+            width: 100%;
+            height: 4.3rem;
+            background: white;
+            border-bottom: 1px solid #ccc;
+          }
+          .main-header img {
+            width: 26%;
+            margin: 1rem 0 0 2rem;
+          }
+          .main-content {
+            position: absolute;
+            top: 4.3rem;
+            width: 100%;
+          }   
+          .main-header button {
+            margin-top: 1rem;
+            border: none;
+            background: white;
+          }
+          .btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default {
+            background-color: #fff !important;
+            border-color: #fff !important;
+          }
+          .btn.active, .btn:active {
+            box-shadow:none;
+          }
+        </style>
+</html>

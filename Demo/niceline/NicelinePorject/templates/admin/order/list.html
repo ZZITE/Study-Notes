@@ -1,0 +1,275 @@
+{% extends "../base.html" %}
+
+{% block title %}Order{% end %}
+
+{% block head %}
+<link href="{{ static_url('admin/css/bootstrap-datetimepicker.min.css') }}"
+      rel="stylesheet">
+<style>
+    .modal-form * {
+        padding: 5px 0;
+    }
+</style>
+{% end %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active">
+  订单管理
+</li>
+{% end %}
+
+{% block content %}
+<div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i>订单数据
+        </div>
+
+        <div class="card-body">
+          <div class="form-inline">
+            <label for="file-upload">上传物流信息: </label>
+            <input type="file" id="file-upload">
+
+            <button class="btn btn-warning order-export" style="margin-left: 15px;">
+              导出订单数据
+            </button>(如果订单"已付款",会自动变为"处理中")
+          </div>
+
+
+          <div class="ctl-button" style="padding-top: 10px">
+              <!-- filter form -->
+              <form class="modal-form" method="get">
+                <div class="row">
+                    <div class="input-append date start_date">
+                        开始日期: <input size="16" type="text"
+                                     name='start_date' value="{{ filter['start_date'] }}" readonly>
+                        <span class="add-on"><i class="fa fa-times icon-remove"></i></span>
+                        <span class="add-on"><i class="fa fa-calendar icon-calendar"></i></span>
+                    </div>
+                    <div class="input-append date end_date"
+                         style="padding-left: 10px;">
+                        结束日期: <input size="16" type="text"
+                                        name ='end_date' value="{{ filter['end_date'] }}" readonly>
+                        <span class="add-on"><i class="fa fa-times icon-remove"></i></span>
+                        <span class="add-on"><i class="fa fa-calendar icon-calendar"></i></span>
+                    </div>
+
+                    <div class="form-inline"
+                         style="padding-left: 10px;">
+                        状态:
+                        <select class="form-control" name="status">
+                            <option value="">
+                                未选择
+                            </option>
+                            <option value="unpaid" {% if filter['status'] == "unpaid" %}selected{% end %}>
+                                未支付
+                            </option>
+                            <option value="paid" {% if filter['status'] == "paid" %}selected{% end %}>
+                                已支付
+                            </option>
+                            <option value="processing" {% if filter['status'] == "processing" %}selected{% end %}>
+                                处理中
+                            </option>
+                            <option value="shipped" {% if filter['status'] == "shipped" %}selected{% end %}>
+                                已配送
+                            </option>
+                            <option value="completed" {% if filter['status'] == "completed" %}selected{% end %}>
+                                订单完成
+                            </option>
+                        </select>
+                    </div>
+
+                    <input type="submit" class="btn btn-primary col-md-1"
+                           value="筛选" style="margin-left:15px; cursor: pointer;">
+                    <a href="{{ reverse_url('admin:order:list') }}"
+                       class="btn btn-secondary col-md-1" style="margin-left: 15px; padding-top:10px;">
+                        撤销
+                    </a>
+                </div>
+              </form>
+              <!-- end filter-form -->
+          </div>
+
+          <!-- pagination -->
+          <nav id="pagination-top" class="float-right">
+              <ul class="pagination">
+                <li class="page-item {% if not object_list.has_previous %}disabled{% end %}">
+                    <a class="page-link" href="?page={{ page_num - 1 }}">上一页</a>
+                </li>
+                  <li class="page-item disabled">
+                    <a class="page-link">{{ page_num }} / {{ object_list.pages if object_list.pages != 0 else 1 }}</a>
+                  </li>
+                <li class="page-item {% if not object_list.has_next %}disabled{% end %}">
+                    <a class="page-link" href="?page={{ page_num + 1 }}">下一页</a>
+                </li>
+              </ul>
+          </nav>
+
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover"
+                   id="dataTable" width="100%"
+                   cellpadding="0" cellspacing="0" border="0">
+              <thead>
+                <tr>
+                    <th>id</th>
+                    <th>邮箱</th>
+                    <th>状态</th>
+                    <th>订单编号</th>
+                    <th>尺寸</th>
+                    <th>数量</th>
+                    <th>总计</th>
+                    <th>ip地址</th>
+                    <th>创建时间</th>
+                    <th>#</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                    <th>id</th>
+                    <th>邮箱</th>
+                    <th>状态</th>
+                    <th>订单编号</th>
+                    <th>尺寸</th>
+                    <th>数量</th>
+                    <th>总计</th>
+                    <th>ip地址</th>
+                    <th>创建时间</th>
+                    <th>#</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                {% for obj in object_list.items %}
+                    <tr data-id="{{ obj.id }}">
+                        <td>{{ obj.id }}</td>
+                        <td>{{ obj.email }}</td>
+                        <td>
+                            <select onchange="changeStatus(this.options[this.options.selectedIndex].value, this)">
+                            <option value="unpaid" {% if obj.status.name == "unpaid" %}selected{% end %}>
+                                未支付
+                            </option>
+                            <option value="paid" {% if obj.status.name == "paid" %}selected{% end %}>
+                                已支付
+                            </option>
+                            <option value="processing" {% if obj.status.name == "processing" %}selected{% end %}>
+                                处理中
+                            </option>
+                            <option value="shipped" {% if obj.status.name == "shipped" %}selected{% end %}>
+                                已配送
+                            </option>
+                            <option value="completed" {% if obj.status.name == "completed" %}selected{% end %}>
+                                订单完成
+                            </option>
+                            </select>
+                        </td>
+                        <td>{{ obj.order_no }}</td>
+                        <td>{{ obj.size }}</td>
+                        <td>{{ obj.quantity }}</td>
+                        <td>{{ obj.total }}</td>
+                        <td>{{ obj.remote_ip }}</td>
+                        <td>{{ obj.created_time }}</td>
+
+                        <!-- 操作按钮 -->
+                        <td>
+                            <a class="btn btn-primary"
+                               href="{{ reverse_url('admin:order:detail', obj.id) }}">
+                                编辑
+                            </a>
+                            <button class="btn btn-danger" style="cursor: pointer;">
+                                删除
+                            </button>
+                        </td>
+                    </tr>
+                {% end %}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- pagination -->
+          <nav id="pagination-top" class="float-right">
+              <ul class="pagination">
+                <li class="page-item {% if not object_list.has_previous %}disabled{% end %}">
+                    <a class="page-link" href="?page={{ page_num - 1 }}">上一页</a>
+                </li>
+                  <li class="page-item disabled">
+                    <a class="page-link">{{ page_num }} / {{ object_list.pages if object_list.pages != 0 else 1 }}</a>
+                  </li>
+                <li class="page-item {% if not object_list.has_next %}disabled{% end %}">
+                    <a class="page-link" href="?page={{ page_num + 1 }}">下一页</a>
+                </li>
+              </ul>
+          </nav>
+
+        </div>
+</div>
+
+{% end %}
+
+{% block script %}
+<script src="{{ static_url('admin/js/bootstrap-datetimepicker.min.js') }}"></script>
+<script src="{{ static_url('admin/js/bootstrap-datetimepicker.zh-CN.js') }}"></script>
+<script>
+function changeStatus (value, self) {
+    var id = $(self).parent().parent().data('id');
+    //alert(value)
+    var data = JSON.stringify({ status: value, id: id }); 
+    $.ajax({   
+        url: window.location.href,   
+        type:'PUT',
+        data: data,   
+        error:function(){   
+            alert('修改失败');   
+        },   
+        success:function(data){   
+            alert('状态修改成功') 
+        } 
+    });
+}
+
+// 删除按钮
+$("td button.btn-danger").on('click',
+                deleteBtnEvent(1, "{{ reverse_url('admin:order:list') }}", '订单'));
+
+
+// 文件上传
+$('#file-upload').on('change', function(event) {
+    if (!this.files[0]) return;
+    var formData = new FormData();
+    formData.append("excel",this.files[0]);
+    $.ajax({
+        url: "{{ reverse_url('admin:order:upload-tracking-no') }}",
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success (data) {
+            alert(data);
+            window.location.reload();
+        },
+        error (data) {
+            alert(data);
+        }
+
+    })
+})
+
+// 日期
+$(".start_date, .end_date").datetimepicker({
+ format: "yyyy-mm-dd",
+ autoclose: true,
+ todayBtn: true,
+ todayHighlight: true,
+ showMeridian: true,
+ pickerPosition: "bottom-left",
+ language: 'zh-CN',//中文，需要引用zh-CN.js包
+ startView: 2,//月视图
+ minView: 2//日期时间选择器所能够提供的最精确的时间选择视图
+ });
+
+
+// order export
+$('.order-export').click(function(event) {
+    let url = "{{ reverse_url('admin:order:export', abs=True) }}",
+        formParams = $('.modal-form').serializeArray();
+    window.location.href = url + "?" + $.param(formParams);
+})
+</script>
+{% end %}

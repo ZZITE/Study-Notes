@@ -1,0 +1,174 @@
+{% extends './base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+<div id="fullpage">
+    <div class="section">    
+        <div class="pageone page">
+            <img class="pagetwo-left" src="{{ static_url('images/pageone-new.jpg')}}"/>
+            <p>FREE LEGGINGS
+                </br> 
+                Participate in Our Activities Now! 
+                </br> 
+                Free 
+                <span>$100</span>
+                High-quality Eco-friendly Leggings!   
+                Once A Pair of Leggings Send
+                A Donation <span>$0.99</span>
+                </br>
+                Would Be Donated To The Red Cross
+            </p>
+        </div>
+        <div class=" arrow"><img class="bounce" src="{{ static_url('images/nextpage.png')}}">The next page featured fabric</div>
+    </div>
+
+
+    <div class="section">
+        <div class="pagetwo page">
+            <div class="page-left">
+                <div class="page-mes text-left">
+                    <span>Soft &High</span>
+                    <h2>Stretch Fabric</h2>
+                    <p>
+                            Fiber is part of a healthy fashion diet.</br> 
+                            Polyester resists pilling more than nylon,</br> 
+                            and outdoes nylon in moisture wicking and quick-drying. </br> 
+                            Since polyester doesn't retain water, it is colorfast </br> 
+                            and does not fade over time like nylon. </br> 
+                            A sweat-wicking, four-way stretch fabric </br> 
+                            that's cool to the touch and fits like a second skin.</br> 
+                            What we ended up with is:</br> 
+                            79% recycled micro polyester</br> 
+                            21% spandex</br> 
+                            260 gsm
+                    </p>
+                    <img  src="{{ static_url('images/pagetwo-new2.png')}}">
+                </div>
+            </div>
+            <img class="pagetwo-right" src="{{ static_url('images/pagetwo-new.jpg')}}" />
+        </div>
+        <div class=" arrow"><img class="bounce" src="{{ static_url('images/nextpage.png')}}">The next page featured technic</div>
+    </div>
+
+
+    <div class="section">
+        <div class="pagethree page">
+            <img class="pagetwo-left" src="{{ static_url('images/pagethree-new1.jpg')}}" />
+            <div class="page-right">
+                <div class="page-mes text-left">
+                    <span>Butt Tech.</span>
+                    <h2>great leggings.</h2>
+                    <p style="line-height:inherit">
+                            Using 20% spandex gives the perfect amount of </br> compression for being active, and for everyday wear.</br> 
+                            The amount of compression in our leggings helps your</br>  muscles perform in your high impact activities, </br> 
+                            but it's not so compressive that they become</br>  uncomfortable when you're lounging.
+                    </p>
+                    <img class="" src="{{ static_url('images/pagethree-new2.jpg')}}">
+                </div>
+            </div>
+        </div>
+        <div style="color:#fff;" class=" arrow"><img class="bounce" src="{{ static_url('images/nextpage-white.png')}}">The next page featured recycling texture</div>
+    </div>
+
+    <div class="section">
+        <div class="pagetwo page">
+            <div class="page-left">
+                <div class="page-mes text-left">
+                    <span>Water bottles make</span>
+                    <h2>great leggings.</h2>
+                    <p style="line-height:inherit">
+                        Water bottles make great leggings.</br>
+                        They say it isn't easy being green. We disagree.</br> 
+                        Every pair of leggings is made from 25 recycled water bottles, </br>
+                        just like the green born from bottles, </br>
+                        which is not only great for the Earth, but feels great too.</br>
+                        We ensure high environmental safety and performance in five areas: </br>
+                        consumer safety (everything in our leggings is super safe), </br> 
+                        resource productivity, water emissions, air emissions, and workplace health and safety. 
+                    </p>
+                    <img style="width:40%;" class="pull-left" src="{{ static_url('images/pagefour-new2.jpg')}}">
+                </div>
+            </div>
+            <img class="pagetwo-right" src="{{ static_url('images/pagefour-new1.jpg')}}" />
+        </div>
+        <div class=" arrow"><img class="bounce" src="{{ static_url('images/nextpage.png')}}">The next page featured donation purpose</div>
+    </div>
+
+    <div class="section s5">
+            <div class="pagefive text-center">
+                <div class="page-center">Niceline shall contribute a donation <span>$0.99</span> to the Red Cross to support the humanitarian aid and disaster relief in your name once you join us in the activities.
+                <form style="margin-top:20px;" class="form-inline" method="post" action="{{reverse_url('index')}}">    
+                <div class="form-group">
+                  <label for="email-account">Free Leggings!</label>
+                  <input type="email" class="form-control email-input" name="email"
+                    id="email-account" placeholder="Enter Your Email" required>
+                  <span class="form-group-btn">
+                    <button class="btn btn-default" type="submit">Go</button>
+                  </span>
+                </div>
+                </form>
+            </div>
+                <img style="width:100%;" src="{{ static_url('images/pagefive-new.jpg')}}" />
+            </div>
+    </div>
+</div>
+
+
+
+<footer class="footer">
+        <div class="pull-left" style="margin-top:6px;margin-left:10px;">
+            <img src="{{ static_url('images/nd.png')}}" />
+            <img src="{{ static_url('images/mc.png')}}" />
+        </div>
+        <div class="text-center">
+            <form class="form-inline" method="post" action="{{reverse_url('index')}}">
+                <div class="form-group">
+                  <label class="email-label"for="email-account">Free Leggings!</label>
+                  <input type="email" class="form-control email-input" name="email"
+                    id="email-account" placeholder="Enter Your Email" required>
+                  <span class="form-group-btn">
+                    <button class="btn btn-default" type="submit">Go</button>
+                  </span>
+                </div>
+            </form>
+        </div>
+</footer>
+</div>
+</div>
+{% end %}
+
+{% block js %}
+<script>
+    $(function(){
+        $('#fullpage').fullpage({
+            sectionsColor: ['#f5f5f5', '#f5f5f5', '#f5f5f5', '#f5f5f5', '#f5f5f5', '#f5f5f5', '#f5f5f5'],
+		    navigation: true,
+		    scrollBar:true,
+            verticalCentered: false,
+            resize: true
+        });
+        $(window).resize(function(){
+            autoScrolling();
+        });
+    
+        function autoScrolling(){
+            var $ww = $(window).width();
+            if($ww < 1024){
+                $.fn.fullpage.setAutoScrolling(false);
+            } else {
+                $.fn.fullpage.setAutoScrolling(true);
+            }
+        }
+    
+        autoScrolling();
+    });
+    </script>
+    {% end %}
+    {% block css %}
+    <style>
+        #fp-nav ul li a span, .fp-slidesNav ul li a span {
+            background: #537A92 ;
+        }
+    </style>
+    {% end %}

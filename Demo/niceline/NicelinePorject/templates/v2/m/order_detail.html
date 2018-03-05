@@ -1,0 +1,657 @@
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/ico" href="{{ static_url('images/favicon.ico') }}" />
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">   
+        <meta name="viewport" content="width=device-width, user-scalable=no">        
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">        
+        <meta name="keywords" content="eco-friendly leggings,eco-friendly yoga pants,recycling,charity donations giving leggings,plastic bottles recycling,clean marine pollution,donation to the Red Cross,leggings,yoga pants" />
+        <meta property="og:url" content="http://www.niceline.com" />
+        <meta property="og:image" content="{{ static_url('images/facebook_share1.jpg')}}" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="628" />
+        <meta property="og:title" content="Luxury leggings with eco-friendly material."/>
+        <meta property="og:description" content="Luxury leggings with eco-friendly material.We know you'll love our luxury, sheer-proof leggings so much, we're giving them away. Claim yours now.-- Great Legging, Green Earth." />
+        <meta name="description" content="Luxury leggings with eco-friendly material.We know you'll love our luxury, sheer-proof leggings so much, we're giving them away. Claim yours now. -- Great Legging, Green Earth." />
+        <script src="{{ static_url('js/jQuery.js') }}"></script>
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+        <link rel="stylesheet" href="{{ static_url('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+
+    </head>
+    <body>
+      <div class="text-center">
+      <a href="{{ reverse_url("index") }}">
+          <img style="width: 26%;
+          margin: 1rem 0 0 2rem;" src="{{ static_url('images/nice.png') }}" alt="">
+      </a>
+    </div>
+          <div class="container-fluid main-content">
+            <div class="row content">
+              <form id="form" data-toggle="validator" role="form" method="post">
+              <div class="col-md-6 pull-right col-xs-12">
+                <div style="margin-top:10%;" class="hidden-xs hidden-sm" ></div>
+                <div class="row">
+                    <h3 style="margin-bottom:10px;"><i class="fa fa-shopping-cart detail-tittle"></i>Order Summary</h3>
+                  <div class="col-md-4 col-sm-4 col-xs-12 cart-img">
+                    <img src="{{ static_url('images/goods_show.jpg') }}"/>
+                    <a class="question-link">
+                      *Minus shipping and handling. LEARN WHY WE CHARGE.<i class="fa question fa-question-circle-o" aria-hidden="true"></i></a>
+                  </div>
+                  <div class="col-md-4 col-sm-7 col-xs-12">
+                    <table class="cart-table" id="table">
+                      <thead></thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span class="key">product</span>
+                          </td>
+                          <td>
+                            <span class="val">Legging</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span class="key">Color</span>
+                          </td>
+                          <td>
+                            <span class="color"></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span class="key">Size</span>
+                          </td>
+                          <td>
+                          <div class=" size-radio">
+                          <div class="form-group my-form-group">
+                            <div class="form-inline">
+                              <div class="radio">
+                                <label>
+                                  <span class="product-size text-center ">XS</span>
+                                  <input class="hidden" type="radio" name="size" value="XS" required data-error="Size required!">
+                                </label>
+                              </div>
+                              <div class="radio">
+                                <label>
+                                  <span class="product-size text-center ">S</span>
+                                  <input class="hidden" type="radio" name="size" value="S" required data-error="Size required!">
+                                </label>
+                              </div>
+                              <div class="radio">
+                                <label>
+                                  <span class="product-size text-center">M</span>
+                                  <input  class="hidden" type="radio" value="M" name="size" required data-error="Size required!">
+                                </label>
+                              </div>
+                              <div class="radio">
+                                <label>
+                                  <span class="product-size text-center ">L</span>
+                                  <input class="hidden" type="radio" name="size" value="L" required data-error="Size required!">
+                                </label>
+                              </div>
+                              <div class="radio">
+                                <label>
+                                  <span class="product-size text-center ">XL</span>
+                                  <input class="hidden" type="radio" name="size" value="XL" required data-error="Size required!">
+                                </label>
+                              </div>
+                            </div>
+                            <div class="help-block with-errors"></div>
+                          </div>
+                          </div>
+                            
+
+                            
+                          </td>
+                        </tr>
+                        <tr class="quantity-tr">
+                          <td>
+                            <span class="key">QTY</span>
+                          </td>
+                          <td>
+                            <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-input"><span class="add" onclick="add()"><i class="fa fa-plus" aria-hidden="true"></i></span><span class="minus" onclick="minus()"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                          </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><div style="BORDER-TOP: #333 1px solid; OVERFLOW: hidden; HEIGHT: 1px"></div></td>
+                        </tr>
+
+                          
+                        <tr>
+                          <td>
+                            <span class="key">Traditional Retail</span>
+                          </td>
+                          <td>
+                            <span class="retail"><del style="color:#E27F60">$<span class="price">100.00</span></del></span>
+                          </td>
+                        </tr>
+                        
+                        <tr>
+                          <td>
+                            <span class="key">Donate</span>
+                          </td>
+                          <td>
+                            <span class="val">$<span class="subtotal">0.99</span></span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span class="key">Shipping</span>
+                          </td>
+                          <td>
+                            <span class="val">$<span class="shopping">19.00</span></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="2"><div style="BORDER-TOP: #333 1px solid; OVERFLOW: hidden; HEIGHT: 1px"></div></td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span class="val">Total</span>
+                          </td>
+                          <td>
+                            USD $<span style="font-size:18px;" class="total val">19.99</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                    <span class="error-mes">{% if error_message %}{{ error_message }}{% end %}</span>
+                  </div>
+                  <div class="col-md-1"></div>
+                </div>
+              </div>
+
+              <div class="col-md-6 pull-left col-xs-12">
+                <div style="margin-top:10%;" class="hidden-xs hidden-sm" ></div>
+                <div class="row">
+                  <div class="col-md-3 hidden-xs"></div>
+                  <div class="col-md-8 col-xs-12">
+
+                      <h3 style="margin-bottom:10px;"><i class="fa fa-truck fa-flip-horizontal detail-tittle"></i>Delivery Details</h3>
+
+                      <div class="form-group">
+                        <label for="inputEmail" class="control-label">Email</label>
+                        <input type="email" name="email" class="form-control"
+                               id="inputEmail" placeholder="Email" data-error="that email address is invalid" required>
+                        <div class="help-block with-errors"></div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="phone" class="control-label">Phone</label>
+                        <input type="text" name="phone" class="form-control"
+                               id="phone" placeholder="Phone (optional)">
+                      </div>
+
+                      <div class="form-group">
+                        <div class="form-inline row">
+                          <div class="form-group col-sm-6 col-xs-6">
+                              <label for="FirstName" class="control-label">First Name</label></br>
+                              <input type="text" name="firstName" class="form-control" id="FirstName" placeholder="First Name" required style="width:100%">
+                          </div>
+                          <div class="form-group col-sm-6 col-xs-6">
+                              <label for="LastName" class="control-label">Last Name</label></br>
+                              <input type="text" name="lastName" class="form-control" id="LastName" placeholder="Last Name" required style="width:100%">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                          <div class="form-inline row">
+                              <div class="form-group col-sm-6 col-xs-6">
+                                  <label for="Address" class="control-label">Address</label></br>
+                                  <input type="text" name="address" class="form-control" id="Address" placeholder="Address" required style="width:100%">
+                              </div>
+                              <div class="form-group col-sm-6 col-xs-6">
+                                  <label for="State" class="control-label">State/Province</label></br>
+                                  <input type="text" name="state" class="form-control" id="State" placeholder="State/Province" required style="width:100%">
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <div class="form-inline row">
+                              <div class="form-group col-sm-6 col-xs-6">
+                                  <label for="city" class="control-label">City</label></br>
+                                  <input type="text" name="city" class="form-control" id="city" placeholder="City" required style="width:100%">
+                              </div>
+                              <div class="form-group col-sm-6 col-xs-6">
+                                  <label for="zipcode" class="control-label">post code</label></br>
+                                  <input type="text" name="zipcode" class="form-control" id="code" placeholder="post code" required style="width:100%">
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <div class="form-inline row">
+                       
+                              <div class="form-group col-sm-4">
+                                  <label for="country">Country</label></br>
+                                  <select style="width:100%;" class="form-control" name="country" id="country" required>
+                                      <option data-code="US" value="UnitedStates">United States</option>
+                                      <option data-code="AU" value="Australia">Australia</option>
+                                      <option data-code="CA" value="Canada">Canada</option>
+                                      <option data-code="GB" value="UnitedKingdom">United Kingdom</option>
+                                      <option data-code="FR" value="France">France</option>
+                                      <option data-code="RU" value="Russia">Russia</option>
+                                      <option data-code="DE" value="Germany">Germany</option>
+                                      <option data-code="JP" value="Japan">Japan</option>
+                                      <option data-code="SG" value="Singapore">Singapore</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <div  style="margin-top:10px;">
+                            <h3 style="margin-bottom:30px;"><i class="fa fa-credit-card detail-tittle"></i>Payment Methods</h3>
+                              <div class="form-group">
+                                <div >
+                                  <label>
+                                    <input checked="true" type="radio" name="payment" value="paypal">
+                                    <img src="{{ static_url('images/paypal.png')}}" />
+                                  </label>
+                                </div>
+                                <ul class="list-inline" style="margin-top:8px;">
+                                    <img src="{{ static_url('images/nd.png')}}" />
+                                    <img src="{{ static_url('images/mc.png')}}" />
+                                </ul>
+                              </div>
+                          </div>
+
+                          <div class="form-group text-center">
+                              <button type="submit" class="btn btn-primary confirm-btn">Continue</button>
+                          </div>
+                      </div>
+
+                    </div>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+        <div class="dialog_mask hide" onclick="dialog_hide()"></div>
+        <div class="dialog_container hide" id="charge_dialog">
+            <span class="dialog_close" onclick="dialog_hide()"><i class="fa fa-times" aria-hidden="true"></i></span>
+            <h2>Why do we charge shipping and handling?</h2>
+            <p>Shipping around the world is expensive, and the only way to make it cheap is to ignore its impact on people and the environment.</p>
+            <br>
+            <p>We ship directly from our factory in China, and our packaging is post-consumer recycled and offset by planting three adorable baby trees for each parcel. By charging sustainable shipping rates, we can do all that and provide fair wages to everyone in our supply chain.</p>
+            <br>
+            <p>Thanks for helping us do it right.</p>
+        </div>
+      </div>
+      </body>
+    </html>
+
+<script>
+  function add () {
+    var qty = $('#quantity').val();
+    qty = Number(qty);
+    qty += 1;
+    qty = qty.toString();
+    $('#quantity').val(qty);
+    $('.quantity-input').change();
+  }
+  function minus () {
+    var qty = $('#quantity').val();
+    qty = Number(qty);
+    if (qty === 1) {
+      return;
+    } else {
+      qty -= 1;
+      qty = qty.toString();
+      $('#quantity').val(qty);
+      $('.quantity-input').change();
+    }
+  }
+  var dialog_hide = function() {
+      $('.dialog_mask').addClass('hide');
+      $('.dialog_container').addClass('hide');
+  }
+  $('.question-link').click(function () {
+      $('.dialog_mask').removeClass('hide');
+      $('.dialog_container').removeClass('hide');
+  })
+  
+  $(function(){
+    $('.radio input').change(function(){
+      $('.radio input').siblings().removeClass('sizeactive');
+      $(this).siblings().addClass('sizeactive');
+    });
+
+    $('.quantity-input').change(function () {
+      var qut = $('.quantity-input').val();
+      var price = 100.00 * qut;
+      price = toDecimal2(price);
+      var subtotal = 0.99 * qut ;
+      subtotal = toDecimal2(subtotal);
+      var shopping = 19.00 * qut ;
+      shopping = toDecimal2(shopping);
+      var total = toDecimal2(Number(subtotal) + Number(shopping));
+      $('.price').html(price);
+      $('.subtotal').html(subtotal);
+      $('.shopping').html(shopping);
+      $('.total').html(total);
+    });
+
+    // 获取字符
+    var input_list = $("input[name]");
+    for (var i = 0; i <= input_list.length; i++) {
+        var input_elem = $(input_list[i]);
+        var name_attr = input_elem.attr('name');
+        var cookie_value = getCookie(name_attr);
+        var type_pattern = new RegExp('text|email', 'i');        // 这个type的输入框直接替换文字
+
+        if (type_pattern.test(input_elem.attr("type")))
+            input_elem.val(cookie_value);
+        else if (input_elem.attr("type") === 'number') {
+            input_elem.val(cookie_value || 1);
+        }
+        else if (input_elem.val() === cookie_value) {        
+            input_elem.attr("checked", true);
+            input_elem.siblings().addClass('sizeactive');
+        }   
+    }
+     // 国家下拉框
+     $("#country > option").each(function(index, element) {
+            if ($(element).val() === getCookie('country')) {
+                $(element).attr("selected", true);
+            }
+        })
+
+
+    function getCookie(name) {
+        var r = document.cookie.match("\\b" + name + "=\"?([^;]*)\\b");
+        return r ? unescape(r[1]) : undefined;
+    }
+    /*强制保留两位小数*/
+    function toDecimal2(x) {    
+        var f = parseFloat(x);    
+        if (isNaN(f)) {    
+            return false;    
+        }    
+        var f = Math.round( x * 100)/100;    
+        var s = f.toString();    
+        var rs = s.indexOf('.');    
+        if (rs < 0) {    
+            rs = s.length;    
+            s += '.';    
+        }    
+        while (s.length <= rs + 2) {    
+            s += '0';    
+        }    
+        return s;    
+    }    
+
+    $('form').validator().on('submit', function (e) {
+      if (e.isDefaultPrevented()) {
+        return;
+      } else {
+        var mask = $('<div class="mask"><div class="loading"><h3>Turn to PayPal</h3><span></span><span></span><span></span><span></span><span></span></div></div>');
+        $('body').append(mask);
+      }
+    })
+    if ($('.size-radio *:checked').length === 0) {
+        var default_elem = $($('input[value="M"]')[0]);
+        default_elem.attr('checked',true);
+        default_elem.siblings().addClass('sizeactive');
+    }
+  });
+
+
+</script>
+
+<style>
+  /*order-detail*/
+.main-header {
+  position: fixed;
+  top:0;
+  z-index: 100;
+  width: 100%;
+  height: 4.3rem;
+  background: white;
+  border-bottom: 1px solid #ccc;
+  }
+.question-link {
+  display: block;
+  margin-top: 0.1rem;
+  color: #4b4b4b;
+}
+.question-link i {
+  font-size: 1rem;
+  color: #2578b5;
+}
+.detail-tittle {
+  margin-right:0.2rem;
+  color:#f24244;
+}
+.color {
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  line-height: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: black;
+}
+.form-control:focus {
+  outline: none;  
+  border-color: #3D6E53;  
+  box-shadow: 0 0 10px rgba(170, 80, 80, 0.4);  
+  border-radius: 5px; 
+}
+.my-form-group {
+  margin-bottom: 0;
+}
+
+  .cart-img img {
+    width: 30%;
+  }
+  .radio {
+    display: inline-block !important;
+  }
+  .radio label {
+    padding-left: 0 !important;
+  }
+.cart-table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+.cart-table tr {
+  box-sizing: border-box;
+}
+.cart-table td {
+  padding-top: 0.5rem;
+  padding-bottom: 0.3rem;
+}
+.product-size {
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  line-height: 30px;
+  height: 30px;
+  border: 1px solid #999;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.product-size:hover {
+  background: #3e3c3d;
+  border: 1px solid #3e3c3d;
+  color: #fff;
+}
+.sizeactive {
+  background: #3e3c3d;
+  border: 1px solid #3e3c3d;
+  color: #fff;
+}
+.quantity-input {
+  font-size: 1.6rem;
+  line-height: 1.42857;
+  color: rgb(85, 85, 85);
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px inset;
+  padding: 6px 12px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(204, 204, 204);
+  border-image: initial;
+  border-radius: 0;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  text-align: center;
+  width: 3.4em;
+  height: 2.5em;
+  padding-left: 0px;
+  padding-right: 0px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.quantity-input:focus {
+  outline: none;  
+  border-color: #3D6E53;  
+  box-shadow: 0 0 10px rgba(170, 80, 80, 0.4);  
+  border-radius: 5px; 
+}
+.form-control {
+  border-radius: 0;
+}
+.confirm-btn {
+  width: 10rem;
+  border-radius: 0;
+  background: #008e59 !important;
+  border: none;
+}
+.key {
+  color: #717171;
+}
+.val {
+  color: #000;
+}
+.error-mes {
+  color: #f24244;
+}
+.mask{
+  position:fixed;
+  top:0px;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#000;
+  opacity:0.6;
+  z-index: 999;
+  height: 100%;
+  }
+.mask h3 {
+  color: #ffffff;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+
+}
+.loading{
+  text-align: center;
+  position: fixed;
+  z-index: 9999;
+  top: 35%;
+  width: 100%;
+  height: 1.5rem;
+}
+.loading span{
+  display: inline-block;
+  width: 15px;
+  height: 100%;
+  margin-right: 5px;
+  background: #A5B4A5;
+  -webkit-animation: load 1.04s ease infinite;
+}
+.loading span:last-child{
+  margin-right: 0px; 
+}
+@-webkit-keyframes load{
+  0%{
+      opacity: 1;
+  }
+  100%{
+      opacity: 0;
+  }
+}
+.loading span:nth-child(1){
+  -webkit-animation-delay:0.13s;
+}
+.loading span:nth-child(2){
+  -webkit-animation-delay:0.26s;
+}
+.loading span:nth-child(3){
+  -webkit-animation-delay:0.39s;
+}
+.loading span:nth-child(4){
+  -webkit-animation-delay:0.52s;
+}
+.loading span:nth-child(5){
+  -webkit-animation-delay:0.65s;
+}
+.dialog_mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #000;
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+.dialog_container {
+  background: #F2E2D3;
+  position: fixed;
+  left: 5%;
+  top: 3rem;
+  width: 90%;
+  z-index: 200;
+  text-align: center;
+  padding: 60px 0;
+}
+.dialog_close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 20px;
+  display: inline-block;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+}
+.dialog_container h2 {
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+.dialog_container p {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 13px;
+  color: #333;
+  line-height: 25px;
+}
+.add {
+  margin-left: 3rem;
+}
+.minus,.add {
+  display: inline-block;
+  padding-top: 0.7rem;
+  width: 3rem;
+  height: 3.4rem;
+  margin-right: 1.7rem;
+  border: 1px solid #ccc;
+  font-size: 2rem;
+  text-align: center;
+  position: relative;
+  bottom: -0.5rem;
+  color: #3e3c3d;
+}
+</style>

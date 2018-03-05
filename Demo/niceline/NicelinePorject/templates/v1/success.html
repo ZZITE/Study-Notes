@@ -1,0 +1,41 @@
+{% extends './base.html' %}
+{% block content %}
+<div>
+    <div class="container-fluid">
+        <div class="row text-center">
+           	<div style="padding:0;" class="col-md-12">
+				<img style="margin:145px 0 10px 0;" src="{{ static_url('images/dagou.png') }}" alt="">
+				<h1 style="margin-bottom:28px;">Thanks for your support!</h1>
+				<p style="width:780px;margin:0 auto;font-size:18px;color:#666666;">Your payment is received successfully.We will notify you of the process 
+					of donation and leggings by mail.Please check your mailbox.</p>
+				<p style="font-size:18px;color:#666666;margin-bottom:30px;">If you have any questions, please <a style="color:#4f842a;" href="mailto:service@niceline.com">contact us.</a></p>
+				<button onClick="Wopen()" style="width:288px;height:48px;background:#70ad46;border:0;font-size:18px;outline:none;font-weight:bold;color:white;">SHARE ON FACEBOOK</button>
+				<a style="text-decoration:underline;display:block;font-size:16px;margin:35px 0 0 0;" href="{{ reverse_url("index") }}">Back To Home</a>
+
+		   	</div>
+        </div>
+    </div>
+</div>
+
+{% end %}
+
+{% block js %}
+<script>
+function Wopen() {
+  window.open('http://www.facebook.com/share.php?u=http://www.niceline.com','_blank','width=600,height=400,top=200px,left=500px')
+}    
+</script>
+{% end %}
+
+{% block css %}
+<style>
+.footer {
+	margin:300px 0 0 0;
+}
+.footer a {
+	margin-right: 60px;
+	font-size: 16px;
+	color: #737373;
+}
+</style>
+{% end %}

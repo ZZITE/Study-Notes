@@ -1,0 +1,168 @@
+{% extends './base.html' %}
+
+{% block content %}
+
+    <div class="row">
+        <div id="fullpage">
+            <!-- one -->
+            <div class="section">
+                <div class="pageone-input">
+                    <form class="form-inline" method="post" action="{{reverse_url('index')}}">
+                        <input class="input" type="email" class="form-control" name="email"
+                        id="email-account" placeholder="Enter Email to Get Free Leggings" required>
+                        <button>Join</button>
+                    </form>
+                </div>
+                <img style="width:100%;" src="{{static_url('images/m-new1.jpg')}}" alt="">
+                <div class="text-left" style="margin-left:1.4rem">
+                <h2 style="margin:1.8rem 0;"><span style="color:#D41A1A;">FREE</span> LEGGINGS</h2>
+                <p style="font-size:1.6rem;color:#666666;">Participate in Our Activities Now!</p>
+                <p style="font-size:1.6rem;color:#666666;">Free <span style="color:#D41A1A;">$100</span> High-quality Eco-friendly Leggings!</p> 
+                <p style="font-size:1.6rem;color:#666666;">Once A Pair of Leggings Send A Donation <span style="color:#D41A1A;">$0.99</span></p>
+                <p style="font-size:1.6rem;color:#666666;">Would Be Donated To The Red Cross</p>
+                </div>
+            </div>
+            <!-- two -->
+            <div class="section s2">
+                <img style="width:100%;" src="{{static_url('images/m-new2.jpg')}}" alt="">
+                <div class="text-left" style="margin-left:1.4rem">
+                        <h2 style="margin:1.8rem 0;">Soft &High Stretch Fabric</h2>
+                        <p style="font-size:1.6rem; color:#666666;">
+                            Fiber is part of a healthy fashion diet.
+                            Polyester resists pilling more than nylon,
+                            and outdoes nylon in moisture wicking and quick-drying.  
+                        </p>
+                        <p style="font-size:1.6rem;color:#666666;">Since polyester doesn't retain water, it is colorfast</p>
+                        <p style="font-size:1.6rem;color:#666666;">and does not fade over time like nylon. 
+                            A sweat-wicking, four-way stretch fabric 
+                            that's cool to the touch and fits like a second skin.</p> 
+                        <p style="font-size:1.6rem;color:#666666;">What we ended up with is: 79% recycled micro polyester 21% spandex 260 gsm</p>
+                </div>
+            </div>
+            <!-- 第三页 -->
+            <div class="section s3">
+                <img style="width:14%;margin:2rem;float:left;" src="{{static_url('images/m-new3.jpg')}}" alt="">
+                <div class="pull-left">
+                    <ul style="font-size:2rem;line-height:8.4rem;">
+                        <li>Quick Drying</li>
+                        <li>High Four-way Stretch</li>
+                        <li>Non-deformation</li>
+                    </ul>
+                </div>
+                <img style="width:100%;" src="{{static_url('images/m-new4.jpg')}}" alt="">
+                <div class="text-left" style="margin-left:1.4rem">
+                        <h2 style="margin:1.8rem 0;">Butt Tech. No sheering.</h2>
+                        <p style="font-size:1.6rem; color:#666666;">
+                                Using 20% spandex gives the perfect amount of compression for being active, and for everyday wear.   
+                        </p>
+                        <p style="font-size:1.6rem;color:#666666;">The amount of compression in our leggings helps your muscles perform in your high impact activities,</p>
+                        <p style="font-size:1.6rem;color:#666666;">but it's not so compressive that they become uncomfortable when you're lounging.</p>
+                </div>
+                <img style="width: 90%; margin: 1rem 5% 5rem 5%;" src="{{static_url('images/m-new5.jpg')}}" alt="">
+            </div>
+            <!-- 第四页 -->
+            <div class="section s4">
+                <img style="width:100%;" src="{{static_url('images/m-new6.jpg')}}" alt="">
+                <div class="text-left" style="margin-left:1.4rem">
+                        <h2 style="margin:1.8rem 0;">Water bottles make great leggings.</h2>
+                        <p style="font-size:1.6rem; color:#666666;">
+                                Water bottles make great leggings.
+                                They say it isn't easy being green. We disagree. 
+                        </p>
+                        <p style="font-size:1.6rem;color:#666666;">Every pair of leggings is made from 25 recycled water bottles, </p>
+                        <p style="font-size:1.6rem;color:#666666;">just like the green born from bottles, 
+                                which is not only great for the Earth, but feels great too.</p>
+                        <p style="font-size:1.6rem;color:#666666;"> We ensure high environmental safety and performance in five areas:</p>
+                        <p style="font-size:1.6rem;color:#666666;">consumer safety (everything in our leggings is super safe), resource productivity, </p>
+                        <p style="font-size:1.6rem;color:#666666;">water emissions, air emissions, and workplace health and safety.</p>
+                </div>
+                <img style="width: 90%; margin: 1rem 5% 5rem 5%;" src="{{static_url('images/m-new7.jpg')}}" alt="">
+            </div>
+            <!-- 第五页 -->
+            <div class="section s5">
+                <div style="padding:1rem 1rem 0 1rem;text-align:center;">
+                    <img style="width:100%;" src="{{static_url('images/m-new8.jpg')}}" alt="">
+                    <div class="text-left" style="margin-left:1.4rem">
+                            <p style="font-size:1.6rem; color:#666666;">
+                                Niceline shall contribute a donation<span style="color:#CF0B0B;">$0.99</span>to the Red Cross to support the humanitarian aid and disaster relief in your name once you join us in the activities.
+                            </p>
+                    </div>
+                    <span style="font-size:1.5rem;text-align:center;color:#666666;margin-top:3rem;display: block;">©Niceline 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="backToTop">Join!</div>
+{% end %}
+
+{% block js %}
+<script>
+    /*
+    $(function(){
+        $('#fullpage').fullpage({
+            sectionsColor: ['fff', '#f7f7f7', 'fff', 'fff', 'fff', '#f5f5f5', '#f5f5f5'],
+		    navigation: true,
+		    scrollBar:true,
+            verticalCentered: false,
+            resize: true
+        });
+        $(window).resize(function(){
+            autoScrolling();
+        });
+    });
+    */
+
+    var e=!0,backToTop = $("#backToTop");
+    $(window).on("scroll",function(n){
+        if($(this).scrollTop()!=0){
+            if(e){
+                backToTop.fadeIn();
+                //backToTop.tracking();
+                e=!1;
+            }
+        }else{
+            backToTop.fadeOut();
+            e=!0;
+        }
+    });
+    backToTop.click(function(){
+        $("html,body").animate({scrollTop:0},1e3);
+        //backToTop.tracking({action:"click"})
+        $('.input').focus();
+    })
+</script>
+{% end %}
+{% block css %}
+<style>
+
+.pageone-input {
+    height: 5rem;
+    background: #fafafa;
+}
+.pageone-input input {
+    width: 70%;
+    height: 3rem;
+    border-radius: 0 !important;
+    margin: 1.2rem 0 0 2rem;
+}
+.pageone-input button {
+    height: 3.1rem;
+    border: none;
+    margin-left: -0.4rem;
+    color: white;
+    background: #70ad46;
+}
+#backToTop {display:none;z-index:9999;position:fixed;bottom:2.8rem;right:5%;cursor:pointer;width:5rem;height:4rem;background:#70AD46;color: #fff;text-align: center;font-size:2rem;line-height: 4rem;border-radius: 25%;}
+#backToTop:hover {background-position:right 0;}
+/* iphone6 */
+@media screen and (max-width: 375px) {
+    p {
+        font-size: 1.6rem ;
+    }
+    #pagefive-text {
+        font-size: 1.6rem;
+    }
+}
+</style>
+{% end %}

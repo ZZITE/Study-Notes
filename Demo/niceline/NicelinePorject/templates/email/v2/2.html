@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">   
+        <meta name="viewport" content="width=device-width, user-scalable=no">        
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Thank you for yoursupport.</title>   
+        <style type="text/css">
+        @charset 'utf-8';
+        html{color:#000;background:#FFF;font-family:'Microsoft YaHei';}
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,strong{padding:0;margin:0;font-family:'Microsoft YaHei';}
+        body {font-size: 14px;}
+        table{border-collapse:collapse;border-spacing:0;}
+        img{border:0;}
+        a{text-decoration:none; color:#000; outline:none;}
+        a:hover{text-decoration:none;}
+        var,em,strong{font-style:normal;}
+        em,strong,th,var{font-style:inherit;font-weight:inherit;}
+        li{list-style:none;}
+        caption,th{text-align:left;}
+        h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+        input,button,textarea,select,optgroup,option{font-family:inherit; font-size:inherit;font-style:inherit;font-weight:inherit;}
+        input,button,textarea,select{*font-size:100%;}
+        .clearfix {*zoom:1;}
+        .clearfix:after {content:'\200B';clear:both;display:block;height:0px}
+        @media screen and (max-width: 414px) {
+            .wrap {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                background: #f5f5f5;
+            }
+            .worker {
+                padding: 0 1rem;
+            }
+            .wrap img {
+                width: 5rem;
+                margin:1rem 0 0 0;
+              
+            }
+            .wrap p {
+                margin:0;
+                font-size: 16px;
+                line-height: 30px;
+            }
+            th {
+                width: 100%;
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <div style="width: 750px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 30px;
+            background: #f5f5f5;" class="wrap">
+        <div style=" width: 100%;
+            text-align: center;" class="auto">
+              <img src="https://1.bp.blogspot.com/-s_SEVtMjhys/WjIob544OsI/AAAAAAAAAEw/Tm2BQzFrVpg4eD3YXiy0ZyOsV_yvznp4gCLcBGAs/s1600/whirt.png" alt="" />
+        </div>
+        <div class="worker">
+            <p style="font-size: 24px;
+            line-height: 50px;">Dear, {{ customer_name }}</p>
+            <p style="font-size: 24px;
+            line-height: 50px;">On behalf of Niceline and the Red Cross,I would like to take this opportunity to convey our sincere thanks to your participation and support.</p>
+            <p style="font-size: 24px;
+            line-height: 50px;">The humanitarian efforts of the Red Cross provide comfort and hope to so many during their times of need.Thank you for your commitment to critically important charity and environmental protection.</p>
+            <p style="font-size: 24px;
+            line-height: 50px;">Certainly,Niceline really appreciate your affirmation and support of our work.On behalf of those we help and serve,thank you for standing with us.</p>
+            <p style="font-size: 24px;
+            line-height: 50px;">We will notify you of the process of leggings and donation by mail.Please make sure you can receive our email.</p>
+            <div style="width:100%;height:100%;">
+                <table style="text-align:center;" border="1">
+                  <tr>
+                    <th style="            width: 124px;
+            font-weight: bold;
+            text-align: center;
+            background: #999;">IMAGE</th>
+                    <th style="            width: 124px;
+            font-weight: bold;
+            text-align: center;
+            background: #999;">PRODUCT</th>
+                    <th style="            width: 124px;
+            font-weight: bold;
+            text-align: center;
+            background: #999;">size</th>
+                    <th style="            width: 124px;
+            font-weight: bold;
+            text-align: center;
+            background: #999;">QUANTITY</th>
+                    <th style="            width: 124px;
+            font-weight: bold;
+            text-align: center;
+            background: #999;">UNIT PRICE</th>
+                    <th style="            width: 124px;
+            font-weight: bold;
+            text-align: center;
+            background: #999;">TOTAL</th>
+                  </tr>
+                  <tr>
+                    <td><img style="width:70px;" src="https://3.bp.blogspot.com/-BruEKKhjRgA/WjPEqfT7xjI/AAAAAAAAAFA/nLWHgX_mFNYHDKpgh_X7aE7NZKoahKYAwCLcBGAs/s1600/trant-1.png" alt="" /></td>
+                    <td>
+                        Legging
+                    </td>
+                    <td>{{ size }}</td>
+                    <td>{{ quantity }}</td>
+                    <td>$19.99</td>
+                    <td>{{ total }}</td>
+                  </tr>
+                  <tr>
+                      <td colspan="3">payment id: {{ payment_id }}</td>
+                      <td colspan="3">transaction id: {{ transaction_id }}</td>
+                  </tr>
+                </table>
+            </div>
+            <p style="margin-top:30px;font-size: 24px;
+            line-height: 50px;">Sincerely,</p>
+            <p style="font-size: 24px;
+            line-height: 50px;">NICELINE</p>
+             <p style="color:#629a3b;font-size: 24px;
+            line-height: 50px;">service@niceline.com</p>
+            <p style="color:#629a3b;font-size: 24px;
+            line-height: 50px;">www.niceline.com</p>
+            <p style="color:#999999;font-size: 24px;
+            line-height: 50px;">P.S Your questions and feedback are very important to us. Please feel free to contact us.</p>
+        </div>
+
+        </div>
+    </body>
+</html>

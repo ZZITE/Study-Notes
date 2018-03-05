@@ -1,0 +1,51 @@
+{% extends "../base.html" %}
+
+{% block title %}Tracking Detail{% end %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item">
+    <a href="{{ reverse_url('admin:tracking:list') }}">
+        推荐代码管理
+    </a>
+</li>
+<li class="breadcrumb-item active">
+    推荐代码id-{{ obj.id }}
+</li>
+{% end %}
+
+{% block content %}
+    <div class="card mb-3">
+        <form class="form-horizontal"
+              method="post" style="padding: 15px;">
+            {% for field in form %}
+                <div class="form-group row">
+                    {% raw field.label(class_='col-sm-1 control-label') %}
+                    <div class="col-sm-8">
+                        {% raw field(class_='form-control') %}
+                    </div>
+                    {% if field.errors %}
+                        {% for field_error in field.errors %}
+                            <p class="text-danger">{{ field_error }}</p>
+                        {% end %}
+                    {% end %}
+                </div>
+            {% end %}
+            {% if error_message %}
+                <p class="text-danger">{{ error_message }}</p>
+            {% end %}
+            <input type="submit" class="btn btn-primary offset-md-5"
+                   value="保存">
+        </form>
+    </div>
+
+    <div class="card mb-2">
+        <div class="card-header">
+            关联的用户
+        </div>
+        <div class="card-body">
+            {% for email_obj in obj.email_set %}
+                <p>{{ email_obj.email }} -- {{ email_obj.created_time }}</p>
+            {% end %}
+        </div>
+    </div>
+{% end %}

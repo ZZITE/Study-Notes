@@ -1,0 +1,132 @@
+{% extends './base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+<div id="fullpage">
+    <div class="section">    
+        <div class="pageone">
+            <div class="pageone-mes">
+                <img src="{{ static_url('images/pageone-3.png')}}"/>
+                <h2>Donate USD $0.99 to <span style="color:#C71F1F;">get free</span> a piece of our high-quality environmentally-friendly leggings.</h2>
+            </div>
+                <img class="img" src="{{ static_url('images/pageone-2.png')}}" />
+            <div class="pageone-right">
+                <img src="{{ static_url('images/pageone-1.png')}}" />
+            </div>
+        </div>
+    </div>
+
+    <div class="section s2">
+        <div class="container-fluid">
+            <div class="row">
+            <img class="pagetwo-left" src="{{ static_url('images/pagetwo-2.jpg')}}">
+                    <div class="pagetwo-text text-left">
+                        <h2>Water bottles make great leggings.</h2>
+                        <p>They say it isn't easy being green. We disagree. Every pair of leggings is made from 25 recycled water bottles, just like the green born from bottles, which is not only great for the Earth, but feels great too.</p>
+                        <span class="pagetwo-text-span"></span>
+                    </div>
+        </div>
+        </div>
+    </div>
+
+
+    <div class="section s3">
+
+        <div class="container-fluid">
+                <div class="row">
+                    <img class="pagethree-right" src="{{ static_url('images/pagethree-1.jpg')}}" />
+
+                    <div class="pagethree-text  text-right">
+                        <div class="text-right pull-right" style="width:40%;margin-top:10px;">
+                            <h2>Soft & High Stretch Fabric</h2>
+                            <p>A sweat-wicking, four-way stretch fabric that's cool to the touch and fits like a second skin.</p>
+                        </div>
+                        <span class="pagethree-text-span"></span>
+                    </div>
+                    <img class="pagethree-leftimg" src="{{ static_url('images/pagethree-3.png')}}">
+                </div>
+        </div>
+
+    </div>
+
+    <div class="section s4">
+
+        <div class="container-fluid">
+                <div class="row">
+                <img class="pagefour-left" src="{{ static_url('images/pagefour-2.jpg')}}">
+                        <div class="pagefour-text text-left">
+                            <h2>Butt Tech.No sheering.</h2>
+                            <p>Meet your booty’s new best friend. And, like a best friend would, they’ll never leave you exposed when you’re doing the Downward Dog.</p>
+                                <span class="pagefour-text-span"></span>
+                        </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="section s5">
+            <div class="container-fluid pagefive text-center">
+                <h3>Niceline shall contribute your USD$0.99 to the Red Cross to support the humanitarian aid and disaster relief in your name. </h3>
+                <img src="{{ static_url('images/pagefive-1.png')}}" />
+            </div>
+    </div>
+</div>
+
+
+
+<footer class="footer">
+        <div class="pull-left" style="margin-top:6px;margin-left:10px;">
+            <img src="{{ static_url('images/nd.png')}}" />
+            <img src="{{ static_url('images/mc.png')}}" />
+        </div>
+        <div class="text-center">
+            <form class="form-inline" method="post" action="{{reverse_url('index')}}">
+                <div class="form-group">
+                  <label class="email-label"for="email-account">take action ! donate your $0.99</label>
+                  <input type="email" class="form-control email-input" name="email"
+                    id="email-account" placeholder="Enter Your Email" required>
+                  <span class="form-group-btn">
+                    <button class="btn btn-default" type="submit">Go</button>
+                  </span>
+                </div>
+            </form>
+        </div>
+</footer>
+</div>
+</div>
+{% end %}
+
+{% block js %}
+<script>
+    $(function(){
+        $('#fullpage').fullpage({
+            sectionsColor: ['#f5f5f5', '#f5f5f5', '#f5f5f5', '#f5f5f5', '#f5f5f5', '#f5f5f5', '#f5f5f5'],
+		    navigation: true,
+		    scrollBar:true,
+            verticalCentered: false,
+            resize: true
+        });
+        $(window).resize(function(){
+            autoScrolling();
+        });
+    
+        function autoScrolling(){
+            var $ww = $(window).width();
+            if($ww < 1024){
+                $.fn.fullpage.setAutoScrolling(false);
+            } else {
+                $.fn.fullpage.setAutoScrolling(true);
+            }
+        }
+    
+        autoScrolling();
+    });
+    </script>
+    {% end %}
+    {% block css %}
+    <style>
+        #fp-nav ul li a span, .fp-slidesNav ul li a span {
+            background: #4EA727 ;
+        }
+    </style>
+    {% end %}

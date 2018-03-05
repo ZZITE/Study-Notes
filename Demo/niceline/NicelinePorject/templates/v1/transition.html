@@ -1,0 +1,40 @@
+{% extends './base.html' %}
+{% block content %}
+          <div class="container-fluid">
+            <div class="row content transition">
+              <div class="col-md-6 col-sm-5 transition-left">
+                  <img src="{{ static_url('images/share.jpg')}}" />
+              </div>
+              <div class="col-md-6 col-sm-6  transition-right">
+                <div class="message">
+                  <h2 style="font-weight: 900;
+                  font-size: 50px;
+                  color: #DD3333;">More than 1000</h2>
+                  <span style="    display: block;
+                  font-size: 30px;
+                  margin-bottom: 70px;
+                  font-weight: 700;">people attended and got free this piece of leggings.</span>
+                  <h2>You're in. Who's next?</h2>
+                  <p>Without those big ads, all of our resources go toward our power bank and getting them to everyone who wants them. Which means you know best who would love us, too.
+                      
+                      </p><p>Share on your wall and tag some friends who have yet to meet their new favorite leggings.
+                      </p>
+                      <br>
+                  <a href="{{ reverse_url("order:submit") }}" onClick="Wopen()"><button class="btn btn-primary">share on facebook</button></a>
+                    </br>
+                    </br>
+                  <a href="{{ reverse_url("order:submit") }}">I have a different idea.</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+{% end %}
+
+{% block js %}
+<script>
+function Wopen() {
+  window.open('http://www.facebook.com/share.php?u=https://www.niceline.com','_blank','width=600,height=400,top=200px,left=500px')
+}    
+</script>
+{% end %}

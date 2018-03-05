@@ -1,0 +1,34 @@
+{% extends './base.html' %}
+{% block content %}
+<div class="row">
+    <img style="width:100%;margin-top:2rem;" src="{{ static_url('images/trant-1.png') }}"/>
+    <div class="text-center">
+        <p style="font-size: 3rem;
+        color: #DD3333;
+        font-weight: 700;">More than 1000</p>
+        <p style="font-size: 1.6rem;
+        padding: 0 1rem;
+        font-weight: 700;">people attended and got free this piece of leggings.</p>
+        <p style="font-size:3rem;color:black;margin:0;">You're in. Who's next?</p>
+    </div>
+    <div style="padding:0 1rem 0 1rem;">
+        <p style="color:#9e9e9e;text-indent:2em;margin:0;">Without those big ads, all of our resources go toward our power bank and getting them to everyone who wants them. 
+            Which means you know best who would love us, t</p>
+        <p style="color:#9e9e9e;text-indent:2em;margin:0;">Share on your wall and tag some friends who have yet to meet their new favorite leggings.</p>
+        <div style="width:100%;text-align:center;padding:1rem 0 0 0;">
+            <a href="{{ reverse_url("order:submit") }}"><button  onclick="Wopen()" style="width:60%;height:3.4rem;line-height:3rem;background:#008e59;border:none;color:white;font-size:1.5rem;">SHARE ON FACEBOOK</button></a>
+            <a href="{{ reverse_url("order:submit") }}" style="text-decoration:underline;color:#9e9e9e;display:block;margin-top:1rem;margin-bottom:5rem;" href="">I have a different idea.</a>
+        </div>
+        
+    </div>
+
+</div>
+{% end %}
+
+{% block js %}
+<script>
+function Wopen() {
+    window.open('http://www.facebook.com/share.php?u=https://www.niceline.com','_blank')
+  }     
+</script>
+{% end %}

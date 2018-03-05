@@ -1,0 +1,130 @@
+{% extends './base.html' %}
+
+{% block content %}
+
+    <div class="row">
+        <div id="fullpage">
+            <!-- 第一页 -->
+            <div class="section">
+                <div class="pageone-input">
+                    <form class="form-inline" method="post" action="{{reverse_url('index')}}">
+                        <input class="input" type="email" class="form-control" name="email"
+                        id="email-account" placeholder="Support us! Enter your email..." required>
+                        <button>Donate</button>
+                    </form>
+                </div>
+                <img style="width:100%;" src="{{static_url('images/pageone-m-1.png')}}" alt="">
+                <p style="font-size:2.2rem;text-align:center;">onate <em style="color:red;">$0.99</em> to get free a piece of our high-quality environmentally-friendly leggings.</p>
+              
+            </div>
+            <!-- 第二页 -->
+            <div class="section s2">
+                <img style="width:100%;" src="{{static_url('images/pagetwo-m-1.png')}}" alt="">
+                <div style="padding:1rem">
+                <p style="font-weight:bold;color:black;text-align:center;font-size:2.2rem;">Water bottles make great leggings.</p>
+                <p style="font-size:2.2rem;text-align:center;color:#666666;">They say it isn't easy being green. We disagree. Every pair of leggings is made from 25 recycled water bottles, 
+                    just like the green born from bottles, which is not only great for the Earth, but feels great too.</p>
+                </div>
+            </div>
+            <!-- 第三页 -->
+            <div class="section s3">
+                <img style="width:100%;" src="{{static_url('images/pagethree-m-1.png')}}" alt="">
+                <div style="padding:5rem 1rem 0 1rem">
+                <p style="font-weight:bold;color:black;text-align:center;font-size:2.2rem;margin-top:1rem;">Soft & High Stretch Fabric</p>
+                <p style="font-size:2.2rem;text-align:center;color:#666666;">A sweat-wicking, four-way stretch fabric that's cool to the touch and fits like a second skin.</p>
+                </div>
+            </div>
+            <!-- 第四页 -->
+            <div class="section s4">
+                <img style="width:100%;" src="{{static_url('images/pagefour-m-1.png')}}" alt="">
+                <div style="padding:5rem 1rem 0 1rem">
+                <p style="font-weight:bold;color:black;text-align:center;font-size:2.2rem;margin-top:1rem;">Butt Tech.No sheering.</p>
+                <p style="font-size:2.2rem;text-align:center;color:#666666;">Meet your booty’s new best friend. And, like a best friend would, they’ll never leave you 
+                    exposed when you’re doing the Downward Dog.</p>
+                </div>
+            </div>
+            <!-- 第五页 -->
+            <div class="section s5">
+                <div style="padding:1rem 1rem 0 1rem;text-align:center;">
+                    <img style="width:60%;" src="{{static_url('images/pagefive-m-1.png')}}" alt="">
+                    <p style="font-weight:bold;color:black;text-align:center;font-size:2.2rem;">Niceline shall contribute your USD$0.99 to the Red Cross to support the 
+                        humanitarian aid and disaster relief in your name.</p>
+                    <p id="pagefive-text" style="font-size:1.5rem;text-align:center;color:#666666;">Donation amount must be above USD$10 every time.Niceline shall keep your USD$0.99 temporarily
+                         until the contributions have been accumulated to USD$10 and then contribute to the Red Cross.Finally,we will put up the donation bills on our site.  </p>
+                    <span style="font-size:1.5rem;text-align:center;color:#666666;margin-top:3rem;display: block;">©Niceline 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="backToTop"></div>
+{% end %}
+
+{% block js %}
+<script>
+    $(function(){
+        $('#fullpage').fullpage({
+            sectionsColor: ['fff', '#f7f7f7', 'fff', 'fff', 'fff', '#f5f5f5', '#f5f5f5'],
+		    navigation: true,
+		    scrollBar:true,
+            verticalCentered: false,
+            resize: true
+        });
+        $(window).resize(function(){
+            autoScrolling();
+        });
+    });
+
+    var e=!0,backToTop = $("#backToTop");
+$(window).on("scroll",function(n){
+	if($(this).scrollTop()!=0){
+		if(e){
+			backToTop.fadeIn();
+			//backToTop.tracking();
+			e=!1;
+		}
+	}else{
+		backToTop.fadeOut();
+		e=!0;
+	}
+});
+backToTop.click(function(){
+	$("html,body").animate({scrollTop:0},1e3);
+	//backToTop.tracking({action:"click"})
+    $('.input').focus();
+})
+</script>
+{% end %}
+{% block css %}
+<style>
+
+.pageone-input {
+    height: 5rem;
+    background: #fafafa;
+}
+.pageone-input input {
+    width: 70%;
+    height: 3rem;
+    border-radius: 0 !important;
+    margin: 1.2rem 0 0 2rem;
+}
+.pageone-input button {
+    height: 3.1rem;
+    border: none;
+    margin-left: -0.4rem;
+    color: white;
+    background: #70ad46;
+}
+#backToTop {display:none;z-index:9999;position:fixed;bottom:2.8rem;right:5%;cursor:pointer;width:5rem;height:5rem;background:url('static/images/pageone-m-2.png') no-repeat;background-size: 5rem;}
+#backToTop:hover {background-position:right 0;}
+/* iphone6 */
+@media screen and (max-width: 375px) {
+    p {
+        font-size: 2rem !important;
+    }
+    #pagefive-text {
+        font-size: 1.5rem !important;
+    }
+}
+</style>
+{% end %}
