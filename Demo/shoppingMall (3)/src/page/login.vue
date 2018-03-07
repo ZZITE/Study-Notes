@@ -285,8 +285,8 @@ export default {
             var self = this;
             var ente;
             var fromdata;
-              ente = '/auth/login'
-              fromdata = {
+            ente = '/auth/login'
+            fromdata = {
                 email: this.ruleForm2.name,
                 password: this.ruleForm2.pass,
                 g_recaptcha_response: null
@@ -306,7 +306,7 @@ export default {
               })
               .then(function (response) {
                 console.log(response.data)
-                if(response.data.need_captcha){
+                if (response.data.need_captcha){
                    self.captcha()
                 }
                 if(response.data.success == false) {
