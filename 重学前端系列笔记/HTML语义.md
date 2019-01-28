@@ -31,6 +31,19 @@
 
 前面提到的 `<header> <main> <artice> <nav> <aside> <footer>`，这类标签很好的构建了HTML结构之间的关系，开发者和读屏软件都可以清晰的从他们所表达的含义里知晓每一部分结构在文档中扮演的角色
 
+
+### 在实际开发中的体现
+
+![image]('https://static001.geekbang.org/resource/image/b6/da/b692ade1e78d295de52ffe01edaa11da.png')
+
+![image]('https://static001.geekbang.org/resource/image/cf/aa/cfc9a6542e0fc973e6e871043e7e42aa.jpeg')
+
+上面两张图中，分别作为页面结构的左侧边栏，文章部分。我们使用 `aside ` 和 `article` 标签来包裹他们。
+
+
+
 ```html
 <h1></h2>
 ```
+
+参考文章<note>https://time.geekbang.org/column/article/78168#previewimg</note>
