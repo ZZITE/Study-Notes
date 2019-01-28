@@ -34,16 +34,33 @@
 
 ### 在实际开发中的体现
 
-![image]('https://static001.geekbang.org/resource/image/b6/da/b692ade1e78d295de52ffe01edaa11da.png')
+来看几个对应上面观点的实际示例
 
-![image]('https://static001.geekbang.org/resource/image/cf/aa/cfc9a6542e0fc973e6e871043e7e42aa.jpeg')
+* 
+![image](https://static001.geekbang.org/resource/image/13/72/139b1603d3851b11e9ee4ed955aec972.png)
+
+图上的<abbr>www</abbr>文字表示的是<strong>World Wide Web</strong>的缩写，在HTML中使用`abbr`标签来表示文字缩写，这是普通标签所无法表达出的‘语义’。
+
+![image](https://static001.geekbang.org/resource/image/e5/1a/e516e5e00ecc5b6b0b743dd2a8d65d1a.png)
+这部分的文字是论文中常见的‘引述’表达。在 HTML 中，有三个跟引述相关的标签 `blockquote` 表示段落级引述内容，`q` 表示行内的引述内容，`cite` 表示引述的作品名。
+
+
+* 
+![image](https://static001.geekbang.org/resource/image/b6/da/b692ade1e78d295de52ffe01edaa11da.png)
+
+![image](https://static001.geekbang.org/resource/image/cf/aa/cfc9a6542e0fc973e6e871043e7e42aa.jpeg)
 
 上面两张图中，分别作为页面结构的左侧边栏，文章部分。我们使用 `aside ` 和 `article` 标签来包裹他们。
 
+* 
+![image](https://static001.geekbang.org/resource/image/6d/72/6d473b6fb734ea85a8cc209bc1716b72.png)
+
+注意一下文章的右侧，出现了几张图片，这种出现在文中的图片，不仅仅是一个 `img` 标签，它和下面的文字组成了一个 `figure` 的语法现象，`figure` 也是我们的一种标签（用于表示与主文章相关的图像、照片等流内容）。
 
 
-```html
-<h1></h2>
-```
+### 补充
+
+![image](https://static001.geekbang.org/resource/image/96/9e/9684130e423b6734b23652f4f0b6359e.jpg)
+这里没提到的标签其实还有很多，稍微做个补充，更多的还需要自己去了解和尝试。实践和养成是一个互补的过程，希望今后在每一个遇到的语义里都能尝试找寻是否有对应的标签，试着将之前的 `div span`转换成更适合的标签去表达。
 
 参考文章<note>https://time.geekbang.org/column/article/78168#previewimg</note>
