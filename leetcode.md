@@ -6,7 +6,7 @@
 我们希望找到一个从A到B的索引映射P.映射P [i] = j意味着A中的第i个元素出现在索引为j的B中。
 这些列表A和B可能包含重复项。如果有多个答案，则输出它们中的任何一个。
 ex: 
-```
+```javascript
 A = [12, 28, 46, 32, 50]
 B = [50, 12, 32, 46, 28]
 ```
@@ -15,7 +15,7 @@ We should return
 [1, 4, 3, 2, 0]
 ```
 解:
-```
+```javascript
 /**
  * @param {number[]} A
  * @param {number[]} B
@@ -35,7 +35,7 @@ var anagramMappings = function (A, B) {
 };
 ```
 更优解: 
-```
+```javascript
 var anagramMappings = function(A, B) {
     var r = [];
     A.forEach(item => r.push(B.indexOf(item)));
@@ -47,7 +47,7 @@ var anagramMappings = function(A, B) {
 * 关于 (a == 1 && a == 2 && a == 3)可能位true吗
 
 解:
-```
+```javascript
 const a = {
     i: 1,
     valueOf: function () {
@@ -86,31 +86,29 @@ Output: false
 
 解：
 
-```js
+```javascript
 /**
  * @param {string} s
  * @return {boolean}
  */
 isValid = s => {
     const stack = [];
-		const mapper = {
-			'{': "}",
-			'[': "]",
-			'(': ")"
+    const mapper = {
+        '{': "}",
+        '[': "]",
+        '(': ")"
 		};
-		for (let i in s) {
-			const v = s[i];
-			if (['{', '[', '('].indexOf(v) > -1) {
-				stack.push(v);
-			} else {
-				const peak = stack.pop();
-				if (v !== mapper[peak]) {
-					return false;
-				}
-			}
-		};
-		return stack.length === 0;
+    for (let i in s) {
+        const v = s[i];
+        if (['{', '[', '('].indexOf(v) > -1) {
+            stack.push(v);
+        } else {
+            const peak = stack.pop();
+            if (v !== mapper[peak]) {
+                return false;
+            }
+        }
+    };
+	return stack.length === 0;
 }
-
-
 ```
