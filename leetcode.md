@@ -60,3 +60,57 @@ if (a == 1 && a == 2 && a == 3) {
 ```
 思路： 因为判断中使用的是“==”，当两个参数类型不同时会先进行类型转换。在上面的代码中，左边为对象右边为数字，在比较==两边的数据时，会先调用左边对象的valueOf方法将a进行转换，这里重写了对象a的valueOf方法实现每次调用都返回上一次加一的值。
 但实际开发基本不会使用==，且ts的应用也时隐式转换的出现场景变的更少了。
+
+* Valid Parentheses
+
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Note that an empty string is also considered valid.
+
+Example :
+
+```js
+Input: "()"
+Output: true
+
+Input: "()[]{}"
+Output: true
+
+Input: "(]"
+Output: false
+```
+
+解：
+
+```js
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+isValid = s => {
+    const stack = [];
+		const mapper = {
+			'{': "}",
+			'[': "]",
+			'(': ")"
+		};
+		for (let i in s) {
+			const v = s[i];
+			if (['{', '[', '('].indexOf(v) > -1) {
+				stack.push(v);
+			} else {
+				const peak = stack.pop();
+				if (v !== mapper[peak]) {
+					return false;
+				}
+			}
+		};
+		return stack.length === 0;
+}
+
+
+```
