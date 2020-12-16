@@ -1,6 +1,10 @@
 # 学习资料、文章收集
+## [type-challenges](https://github.com/type-challenges/type-challenges)
+TypeScript 类型体操姿势合集
+[题解](./Type-challenges)
 
-## [Leetcode](./Leetcode)
+
+## [Leetcode刷题合集](./Leetcode)
 ## React &hearts;
 * [~~文档~~](https://react.docschina.org/)
 * [Redux 中文文档](http://cn.redux.js.org/)
